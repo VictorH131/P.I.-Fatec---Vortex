@@ -1,0 +1,1043 @@
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+}
+ 
+
+/* ------------------------ Header I ------------------------  */
+
+ #headerI #hrhead1{
+    border: 12px solid #840101;
+    margin-top: -8px;
+}
+
+#headerI .top-bar {
+  background-color: #a90000;
+  color: #fff;
+  padding: 25px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#headerI #logo_cps {
+  width: auto;
+  height: 80px;
+  margin-right: 60px;
+}
+
+#headerI #logo_fatec{
+  width: auto;
+  height: 65px;
+  margin-left: 60px;
+}
+
+/* ------------------------ Header II ------------------------  */
+
+#headerII .top-bar {
+  color: #fff;
+  padding: 25px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: -15px;
+}
+
+#headerII  #logo_cps {
+  width: auto;
+  height: 70px;
+  margin-right: 60px;
+}
+
+#headerII  #logo_fatec{
+  width: auto;
+  height: 95px;
+  margin-left: 130px;
+}
+
+
+
+
+/* ------------------------ Nav ------------------------  */
+.navbar {
+  background-color: #B20000;
+  display: flex;
+  justify-content: center;
+  gap: 1px;
+  padding: 0;
+  height: 60px;
+}
+
+.navbar a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  padding: 0 20px; 
+  border-radius: 5px;
+  height: 100%;
+  transition: background-color 0.3s ease;
+  width: 90px;
+  border: 1px solid #660000;
+  border-left: none;
+  font-size: 19px;
+}
+.navbar #home{
+  border: 1px solid #660000;
+}
+
+
+.navbar a:hover {
+  background-color: #660000;
+}
+
+
+#hrhead1 {
+  border: 4px solid #660000; 
+  margin-top: -2px;
+}
+
+
+/* ------------------------ Footer I ------------------------  */
+
+#hrfoot1 {
+    border: 18px solid #0C254a;
+    margin-bottom: -6px;
+}
+
+#footerI {
+  background-color: #11366b;
+  color: white;
+  padding: 40px 50px;
+  margin-bottom: -50px;
+}
+
+#footerI .footer-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+#footerI .coluna {
+  display: flex;
+  max-width: 200px;
+  justify-content: center;
+  margin-left: -70px;
+  
+}
+
+#footerI .coluna p{
+  margin-top: 24px;
+  margin-bottom: 5px;
+  font-size: 20px;
+}
+
+#footerI #logo_vortex_s{
+  width: auto;
+  height: 120px;
+  margin-bottom: 10px;
+}
+#footerI #logo_vortex_n {
+  width: auto;
+  height: 60px;
+  margin-bottom: 10px;
+  margin-left: -8px;
+}
+
+#footerI .texto-sistema {
+  max-width: 400px;
+  display: flex;
+  min-width: 200px;
+  justify-content: center;
+  text-align: justify;
+}
+
+#footerI .direita {
+  text-align: right;
+  margin-right: -110px;
+
+}
+#footerI .direita img{
+  width: auto;
+  height: 70px;
+
+}
+
+
+/* ------------------------ Footer II ------------------------  */
+
+#hrfoot1 {
+    border: 18px solid #0C254a;
+    margin-bottom: -6px;
+}
+
+#footerII {
+  background-color: #11366b;
+  color: white;
+  padding: 40px 50px;
+  margin-bottom: -50px;
+}
+
+#footerII .footer-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 50px;
+}
+
+#footerII .coluna {
+  display: flex;
+  max-width: 150px;
+  justify-content: center;
+  
+}
+
+#footerII #logoVor{
+  margin-left: -70px;
+}
+
+#footerII .texto-sistema {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+}
+#footerII .texto-sistema #colunaas  {
+  display: flex;
+  justify-content: center;
+  width: 250px;
+  font-size: 20px;
+  margin-top: 20px;
+  margin-left: -47px;
+}
+#footerII .texto-sistema #colunaas  p{
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+#footerII .texto-sistema #colunaas  h2{
+  height: 50px;
+  font-size: 22px;
+  margin-top: 20px;
+}
+
+#footerII .texto-sistema #colunaas  img{
+  width: 25px;
+  margin-top: -5PX;
+  margin-bottom: -5px;
+  margin-right: 5px;
+}
+#footerII .Telefonee{
+  height: 180px;
+  border-left: 2px solid #0c254a ;
+
+}
+#footerII .direita {
+  text-align: right;
+  max-width: 120px;
+  margin-right: 15px;
+  margin-top: 15px;
+  margin-left: 15px;
+}
+#footerII .direita img{
+  width: auto;
+  height: 130px;
+}
+
+#footerII .politica{
+  text-align: center;
+  margin-bottom: -25px;
+}
+
+#footerII .politica a:hover{
+  font-size: 20.5px;
+}
+
+
+#footerII .politica p{
+  text-align: center;
+  font-size: 17px;
+  margin-bottom: 0px;
+}
+#footerII .politica a{
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+}
+
+/* ------------------------ Main Index ------------------------  */
+
+
+#mainindex {
+  text-align: center;
+  padding: 80px 0 160px;
+}
+
+#mainindex h2 {
+  color: #a90000;
+  font-size: 2.5em;
+  letter-spacing: 2px;
+}
+
+#mainindex .descricao {
+  color: #444;
+  margin: 15px 0;
+  font-size: 1.2em;
+}
+
+#mainindex .acesso {
+  font-weight: bold;
+  color: #303030;
+  letter-spacing: 2px;
+  margin: 40px 0 20px;
+}
+
+#mainindex .botoes {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  
+}
+
+#mainindex .botao{
+  background-color: #1D3C68;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  letter-spacing: 1px;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 20px;
+  width: 200px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s; 
+}
+
+#mainindex .botao:hover {
+  background-color: #102542;
+}
+
+
+
+/* ------------------------ Main Login ------------------------  */
+
+
+.voltar {
+  display: inline-block;
+  margin: 22px;
+  background-color: #1D3C68;
+  color: white;
+  padding: 8px 20px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: bold;
+  letter-spacing: 2px;
+  font-weight: bold;
+  font-size: 1.2em;
+  vertical-align: middle; 
+}
+
+.voltar:hover{
+  background-color: #102542;
+}
+.voltar img{
+  height: 18px; 
+  margin-bottom: -3px;
+  margin-right: 5px;
+  
+}
+
+#mainlogin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0 120px;
+}
+
+
+#mainlogin .login-box {
+  background-color: #f5f5f5;
+  border: 2px solid #004080;
+  border-radius: 12px;
+  padding: 30px 40px;
+  width: 400px;
+  text-align: center;
+  
+}
+
+#mainlogin .login-box #linha {
+  display: flex;
+  justify-content: center;
+  margin-left: -15px;
+}
+
+#mainlogin .login-box h2 {
+  font-size: 48px;
+  color: #1a355e;
+  margin-bottom: 0;
+  margin-top: 8px;
+  letter-spacing: 2px;
+}
+
+#mainlogin .login-box h3 {
+  color: #333;
+  margin: 5px 0 25px;
+  font-weight: normal;
+  font-style: bold;
+}
+
+
+#mainlogin .login-box label {
+  display: block;
+  text-align: left;
+  font-weight: bold;
+  margin: 38px 15px 5px;
+  width: 80px;
+ 
+}
+
+#mainlogin .login-box input {
+  width: 280px;
+  padding: 8px;
+  border: none;
+  border-radius: 10px;
+  background-color: #dbdbdb;
+  font-size: 14px;
+  margin-top: 30px;
+  
+}
+
+#mainlogin .login-box button {
+  background-color: #a90000;
+  color: white;
+  padding: 10px 30px;
+  margin: 20px 0 10px;
+  border: none;
+  border-radius: 20px;
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 50px;
+  width: 180px;
+}
+
+#mainlogin .login-box button:hover {
+  background-color: #790303;
+
+}
+
+#mainlogin .login-box .ajuda {
+  display: block;
+  font-size: 15px;
+  margin-top: 10px;
+  color: #1a355e;
+  margin-bottom: 16px;
+  width: 150px;
+
+}
+
+#mainlogin .login-box .ajuda:hover {
+  color: #014dc0;
+}
+
+
+
+/* ------------------------ Main Ajuda Login ------------------------  */
+
+
+
+#mainAjulog {
+  padding: 0 30px 30px;
+  text-align: center;
+}
+
+#mainAjulog h2 {
+  font-size: 35px;
+  color: #1a355e;
+  margin-bottom: 30px;
+  text-align: center;
+  margin-top: 0px;
+}
+
+#mainAjulog .box-ajuda {
+  display: inline-block;
+  background-color: #f3f3f3;
+  border: 1.5px solid #ccc;
+  border-radius: 12px;
+  padding: 30px;
+  max-width: 450px;
+}
+
+
+#mainAjulog .box-ajuda p {
+  color: #333;
+  margin-bottom: 15px;
+  font-size: 14px;
+  text-align: center;
+}
+
+#mainAjulog .telefones {
+  background-color: #13294b;
+  color: white;
+  padding: 20px 50px 20px 50px;
+  margin: 0 50px 0 50px;
+  border-radius: 10px;
+  font-size: 16px;
+  text-align: center;
+}
+#mainAjulog .telefones #Centro {
+display: flex;
+justify-content: center;
+}
+#mainAjulog .telefones img{
+  height: 30px; 
+  margin-bottom: -3px;
+  margin-right: 5px;
+}
+#mainAjulog .telefones div {
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+
+/* ------------------------ Main politiccas ------------------------  */
+ 
+#mainpoli {
+  padding: 30px 8px 80px 80px;
+  max-width: 900px;
+  margin:  auto;
+}
+#mainpoli h1{
+  color: #790303;
+  margin-top: 40px;
+}
+#mainpoli h2 {
+  color: #002c5f;
+  margin-top: 40px;
+}
+
+#mainpoli  .linha-fina {
+  height: 3px;
+  flex-grow: 1;
+  background-color: #800000;
+}
+
+#mainpoli .linha-completa {
+  display: flex;
+  align-items: center;
+  height: 10px;
+  margin: 20px 0;
+  margin-top: -20px;
+}
+
+#mainpoli  .linha-grossa {
+  height: 15px;
+  width: 150px;
+  background-color: #800000;
+  border-radius: 10px;
+  
+}
+
+/* ------------------------ Main Ajuda ------------------------  */
+
+
+#mainajuda {
+  padding: 40px 60px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+#mainajuda .sugestoes {
+  margin-bottom: 60px;
+}
+
+#mainajuda .sugestoes h2 {
+  color: #002c5f;
+  margin-bottom: 10px;
+}
+
+#mainajuda .sugestoes p {
+  margin-bottom: 15px;
+  max-width: 600px;
+}
+
+#mainajuda  textarea {
+  width: 100%;
+  height: 100px;
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid #014dc0;
+  resize: none;
+  margin-bottom: 10px;
+  background-color: #f1f6fc;
+}
+
+#mainajuda  button {
+  background-color: #c00;
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#mainajuda  button:hover {
+  background-color: #790303;
+  
+}
+#mainajuda .faq {
+  margin-top: 40px;
+}
+
+#mainajuda .faq h2 {
+  margin-bottom: 20px;
+  color: #222;
+}
+
+#mainajuda .faq-item {
+  margin-bottom: 35px;
+  padding: 10px;
+  border-radius: 6px;
+  transition: background-color 0.3s;
+}
+
+#mainajuda .faq-item:hover {
+  background-color: #f9f9f9;
+}
+
+#mainajuda .faq-pergunta {
+  cursor: pointer;
+  display: block;
+  padding: 12px;
+  background-color: #eaeaea;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+#mainajuda .faq-pergunta:hover {
+  background-color: #ddd;
+}
+#mainajuda .faq-item.ativo .faq-pergunta {
+  background-color: #fff;
+}
+
+#mainajuda .faq-resposta {
+  display: none;
+  margin-top: 5px;
+  padding-left: 30px; 
+  color: #444;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+#mainajuda .faq-item.ativo .faq-resposta {
+  display: block;
+}
+
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.7);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.popup-conteudo {
+  background: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+  position: relative;
+  text-align: left;
+  border: 3px solid #c00;
+}
+.popup-conteudo a{
+  text-decoration: none;
+}
+.popup-conteudo h2 {
+  margin-top: 0;
+}
+
+.popup-conteudo .fechar {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #444;
+}
+
+
+/* ------------------------ Main Sobre ------------------------  */
+
+
+#mainsobre {
+  padding: 60px 40px;
+  max-width: 1100px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+#mainsobre .sobre-texto {
+  max-width: 600px;
+}
+
+#mainsobre .sobre-texto h2 {
+  font-size: 35px;
+  margin-bottom: 30px;
+  color: #002c5f;
+}
+
+#mainsobre .sobre-texto p {
+  font-size: 19px;
+  line-height: 1.6;
+  margin-bottom: 90px;
+  text-align: justify;
+
+}
+
+#mainsobre .logo-vortex {
+  margin-top: 35px;
+  max-width: 350px;
+}
+
+
+
+/* ------------------------ Main Home (alunos) ------------------------  */
+
+#mainhome {
+  padding: 40px 20px;
+  max-width: 900px;
+  margin: auto;
+}
+
+#mainhome section {
+  margin-bottom: 60px;
+}
+
+#mainhome h2 {
+  font-size: 28px;
+  color: #1a355e;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin-left: 19px;
+  letter-spacing: 1.5px;
+  margin-bottom: -13px;
+}
+
+#mainhome .votacoes .linha-completa,
+#mainhome .candidatar .linha-completa {
+  display: flex;
+  align-items: center;
+  height: 10px;
+  margin: 20px 0;
+  margin-bottom: 40px;
+}
+
+#mainhome .votacoes .linha-grossa {
+  height: 15px;
+  width: 170px;
+  background-color: #800000;
+  border-radius: 10px;
+}
+
+#mainhome .votacoes .linha-fina {
+  height: 3px;
+  flex-grow: 1;
+  background-color: #800000;
+}
+
+#mainhome .candidatar .linha-grossa {
+  height: 15px;
+  width: 230px;
+  background-color: #800000;
+  border-radius: 10px;
+}
+
+#mainhome .candidatar .linha-fina {
+  height: 3px;
+  flex-grow: 1;
+  background-color: #800000;
+}
+
+#mainhome .caixa-votacao {
+  display: flex;
+  background-color: #f3f3f3;
+  padding: 15px;
+  border-radius: 12px;
+  align-items: center;
+  gap: 20px;
+  width: 850px;
+}
+
+#mainhome .texto-voto h3 {
+  font-size: 18px;
+}
+
+#mainhome .texto-voto p {
+  font-size: 14px;
+  margin-bottom: 70px;
+}
+
+#mainhome .botao-leia {
+  display: inline-block;
+  background-color: purple;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 14px;
+  margin-left: 220px;
+}
+
+#mainhome .subtexto {
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+#mainhome .caixa-candidatura {
+  display: flex;
+  align-items: center;
+  background-color: #f1f1f1;
+  padding: 15px;
+  border-radius: 10px;
+  gap: 20px;
+}
+
+#mainhome .icon-cand {
+  width: 60px;
+  height: 60px;
+}
+
+#mainhome .texto-cand p {
+  font-size: 14px;
+}
+
+#mainhome .botao-cand {
+  background-color: #a90000;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-left: auto;
+}
+
+
+#mainhome .carousel {
+  position: relative;
+  width: 500px;
+  height: 300px;
+  overflow: hidden;
+  border-radius: 8px;
+  border: 2px solid #ddd;
+  flex-shrink: 0;
+  border: 2px solid #014dc0;
+}
+
+#mainhome .carousel-img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+#mainhome .carousel-img.active {
+  opacity: 1;
+}
+
+#mainhome .carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: transparent; 
+  border: none;
+  color: white;
+  font-size: 20px;
+  padding: 6px 12px;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 2;
+  transition: background-color 0.3s ease;
+}
+
+#mainhome .carousel-btn.prev {
+  left: 10px;
+}
+
+#mainhome .carousel-btn.next {
+  right: 10px;
+}
+
+
+#mainhome .carousel-btn:hover {
+  background-color: rgba(128, 0, 128, 0.7);
+
+}
+
+/* ------------------------ Main eleja-se ------------------------  */
+
+#mainelenao {
+  padding: 40px;
+  text-align: center;
+}
+
+#mainelenao    h2 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #223;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+#mainelenao   .form-container {
+  background-color: #f9f9f9;
+  border: 2px solid #0d2a53;
+  border-radius: 10px;
+  width: 400px;
+  margin: 0 auto;
+  padding: 30px;
+}
+
+#mainelenao  .foto-usuario {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+#mainelenao   .foto-usuario img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 1px solid #aaa;
+  padding: 10px;
+}
+
+#mainelenao   label {
+  display: block;
+  text-align: left;
+  font-size: 0.9rem;
+  margin-top: 10px;
+  color: #222;
+}
+
+#mainelenao   input,
+textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 4px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background-color: #eee;
+}
+
+#mainelenao    .row {
+  display: flex;
+  gap: 10px;
+}
+
+#mainelenao   .row input {
+  flex: 1;
+}
+
+#mainelenao   .btn-submit {
+  background-color: #c00;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  padding: 10px;
+  width: 100%;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background 0.3s ease;
+}
+
+#mainelenao  .btn-submit:hover {
+  background-color: #a60000;
+}
+
+
+
+#btnCadastrar {
+      padding: 12px 24px;
+      font-size: 16px;
+      background-color: #006400;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #btnCadastrar:hover {
+      background-color: #004d00;
+    }
+
+    .popup-overlay {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.4);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .popup-box {
+      background-color: #f1f1f1;
+      border: 2px solid #800000;
+      border-radius: 5px;
+      width: 280px;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      overflow: hidden;
+    }
+
+    .popup-box h2 {
+      margin-top: 15px;
+      color: #002147;
+    }
+
+    .popup-box p {
+      margin: 10px 20px;
+      font-size: 14px;
+      color: #333;
+    }
+
+    .popup-box button {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      background-color: #c00000;
+      color: white;
+      border: none;
+      border-radius: 0 0 5px 5px;
+      cursor: pointer;
+    }
+
+    .popup-box button:hover {
+      background-color: #a00000;
+    }

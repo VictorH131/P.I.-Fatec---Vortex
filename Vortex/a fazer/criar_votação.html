@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Votações - Fatec</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+        }
+
+        /* Topo Fatec */
+        .top-bar {
+            background-color: #C00;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .top-bar img {
+            height: 30px;
+            margin-right: 10px;
+        }
+
+        /* Menu */
+        .menu {
+            background-color: #C00;
+            color: white;
+            display: flex;
+            padding-left: 20px;
+        }
+
+        .menu a {
+            padding: 12px 20px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .menu a:hover {
+            background-color: #A00;
+        }
+
+        /* Conteúdo */
+        .content {
+            padding: 30px;
+        }
+
+        .title-section {
+            font-weight: bold;
+            color: #223;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .underline {
+            width: 120px;
+            height: 3px;
+            background-color: #C00;
+            margin-bottom: 20px;
+        }
+
+        .semester {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .semester-title {
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .create-button {
+            background-color: #3A4F7A;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .vote-box {
+            border: 1px solid #ccc;
+            background-color: #f5f8fa;
+            padding: 30px;
+            text-align: center;
+            color: #223;
+            border-radius: 5px;
+            max-width: 600px;
+            margin: auto;
+        }
+
+        .vote-box strong {
+            color: #C00;
+        }
+
+        /* Rodapé */
+        .footer {
+            background-color: #1F3667;
+            color: white;
+            padding: 20px;
+            margin-top: 40px;
+            font-size: 12px;
+        }
+
+        .footer-columns {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            text-align: center;
+        }
+
+        .footer-columns div {
+            margin: 10px;
+        }
+
+        .footer img {
+            height: 50px;
+            margin-bottom: 10px;
+        }
+
+        .footer a {
+            color: #fff;
+            text-decoration: underline;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Topo -->
+    <div class="top-bar">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Fatec_logo.svg/2560px-Fatec_logo.svg.png" alt="Logo Fatec" style="height: 40px;">
+    </div>
+
+    <!-- Menu -->
+    <div class="menu">
+        <a href="#">Home</a>
+        <a href="#">Votação</a>
+        <a href="#">Sobre</a>
+        <a href="#">Ajuda</a>
+        <a href="#">Sair</a>
+    </div>
+
+    <!-- Conteúdo -->
+    <div class="content">
+        <div class="title-section">Votações</div>
+        <div class="underline"></div>
+
+        <div class="semester">
+            <div class="semester-title">DSM - 1º Semestre</div>
+            <button class="create-button">Criar Votação</button>
+        </div>
+
+        <div class="vote-box">
+            <strong>Parece que não há nenhuma votação disponível!</strong>
+            <p>Crie uma votação através do botão acima para poder iniciá-la.</p>
+        </div>
+    </div>
+
+    <!-- Rodapé -->
+    <div class="footer">
+        <div class="footer-columns">
+            <div>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Vortex_logo.svg/512px-Vortex_logo.svg.png" alt="Vortex Logo">
+                <div>Uma parceria<br>Vortex e Fatec</div>
+                <small>Fornecendo um Futuro melhor.</small>
+            </div>
+            <div>
+                <div><strong>Telefone:</strong></div>
+                <div>(19) 3843-1986</div>
+                <div>(19) 3863-5210</div>
+            </div>
+            <div>
+                <div><strong>Fatec Ogari de Castro Pacheco</strong></div>
+                <div>Rua Tereza Lera Paoletti, 570/590</div>
+                <div>Jardim Bela Vista - CEP: 13974-080</div>
+            </div>
+        </div>
+        <p>© 2002 - Centro Paula Souza - Desenvolvido por Vortex Inc - Todos os direitos reservados.</p>
+        <p><a href="#">Políticas E Privacidade</a></p>
+    </div>
+
+</body>
+</html>

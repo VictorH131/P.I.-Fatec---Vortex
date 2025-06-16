@@ -1,0 +1,123 @@
+* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fff;
+      color: #222;
+    }
+
+    header {
+      background-color: #fff;
+      padding: 10px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav {
+      background-color: #c00;
+      padding: 12px 0;
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      gap: 40px;
+    }
+
+    nav ul li {
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    main {
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      color: #223;
+      border-bottom: 3px solid #c00;
+      display: inline-block;
+      margin-bottom: 30px;
+    }
+
+    .resultado {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    .resultado img {
+      width: 100px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 2px solid #002147;
+    }
+
+    .info {
+      flex: 1;
+    }
+
+    .info p {
+      margin: 6px 0;
+    }
+
+    .voto-circulo {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background-color: #e7eefa;
+      color: #002147;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      font-weight: bold;
+      border: 2px solid #002147;
+    }
+
+    .vencedor {
+      background-color: #eef6f1;
+      padding: 10px;
+      border: 2px dashed #1c6522;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .vencedor strong {
+      color: #1c6522;
+      font-size: 1.2rem;
+    }
+
+    footer {
+      background-color: #0d2a53;
+      color: white;
+      padding: 30px 40px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      font-size: 0.9rem;
+    }
+
+    footer div {
+      margin: 10px 0;
+      max-width: 300px;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      font-size: 0.8rem;
+      padding-top: 10px;
+      color: #ccc;
+    }
