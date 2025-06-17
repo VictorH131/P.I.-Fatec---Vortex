@@ -941,14 +941,14 @@ justify-content: center;
   margin-right: 8px;
 }
 
-#mainelenao   input,
-textarea {
+#mainelenao input,
+#mainelenao textarea {
   width: 100%;
   padding: 8px;
   margin-top: 4px;
   margin-bottom: 25px;
   border-radius: 6px;
-  border: 1px solid #ccc;
+  border: 1px solid #afafaf;
   background-color: #eee;
   resize: none;
 
@@ -964,7 +964,7 @@ textarea {
   flex: 1;
 }
 
-#mainelenao   .btn-submit {
+#mainelenao .btn-submit {
   background-color: #c00;
   color: white;
   font-weight: bold;
@@ -977,6 +977,14 @@ textarea {
   transition: background 0.3s ease;
 }
 
+#mainelenao #matricula,
+#mainelenao #semestre,
+#mainelenao #curso {
+ background-color:  #dbdbdb;
+}
+#mainelenao #semestre{
+  width: 110px;
+}
 #mainelenao  .btn-submit:hover {
   background-color: #a60000;
 }
@@ -1050,6 +1058,84 @@ textarea {
   background-color: #a00000;
 }
   
+
+/* ------------------------ Main Votar (inicial) ------------------------  */
+
+#mainvotarinicio section {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+#mainvotarinicio h2 {
+  font-size: 1.5rem;
+  color: #2c3e50;
+  display: inline-block;
+  padding-bottom: 0.25rem;
+  margin-top: 40px;
+}
+
+#mainvotarinicio p {
+  margin-top: 1.5rem;
+  font-weight: bold;
+  color: #000;
+}
+
+#mainvotarinicio .card {
+  margin-top: 100px;
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #f5f5f5;
+  margin-bottom: 150px;
+}
+
+#mainvotarinicio .card-icon {
+  flex-shrink: 0;
+  padding: 1.5rem;
+}
+
+#mainvotarinicio .card-content {
+  padding: 1rem;
+  flex-grow: 1;
+}
+
+#mainvotarinicio .card-content p {
+  margin: 0 0 1rem 0;
+  font-weight: bold;
+}
+
+#mainvotarinicio .card-content a {
+  background-color: #a00d14;
+  color: white;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+#mainvotarinicio  .linha-completa {
+  display: flex;
+  align-items: center;
+  height: 10px;
+  margin: 20px 0;
+  margin-bottom: 40px;
+  margin-top: -20px;
+}
+
+#mainvotarinicio  .linha-grossa {
+  height: 15px;
+  width: 190px;
+  background-color: #800000;
+  border-radius: 10px;
+}
+
+#mainvotarinicio  .linha-fina {
+  height: 3px;
+  flex-grow: 1;
+  background-color: #800000;
+}
 
 
 /* ------------------------ Main Votar (Escolha) ------------------------  */
@@ -1174,6 +1260,8 @@ textarea {
   background-color: #800000;
 }
 
+
+
 /* ------------------------ Main Votar (final) ------------------------  */
 
 #maindex {
@@ -1243,6 +1331,7 @@ textarea {
   justify-content: center;
   margin: 10px auto;
 }
+
 
 
 /* ------------------------ Main ver cursos ------------------------  */

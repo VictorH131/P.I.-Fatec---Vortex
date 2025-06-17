@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Votações - Vortex</title>
+    <title>Boas Vindas - Vortex</title>
     <link rel="stylesheet" href="style/style.css">  <!--estilo(Css) do site-->
     <link rel="icon" href="img/icones/favicon.ico"> <!--Icone do Site-->
   </head>
@@ -21,7 +21,7 @@
     <!-- nav -->
     <nav class="navbar">
       <a href="home_aluno.html" id="home">Home</a>
-      <a href="votar_aluno.html">Votação</a>
+      <a href="votar_aluno">Votação</a>
       <a href="sobre_aluno.html">Sobre</a>
       <a href="ajuda_aluno.html">Ajuda</a>
       <a href="index.html">Sair</a>
@@ -29,36 +29,35 @@
     <hr id="hrhead1">
 
     <!--Main index-->
-    <main id="maindex">
-      <h2>Votações Encerradas</h2>
+    <main id="mainvotarinicio">
+      <section>
+        <h2>Votação Aberta!</h2>
+        <div class="linha-completa">
+          <div class="linha-grossa"></div>
+          <div class="linha-fina"></div>
+        </div>
+        <p>
+          Você tem até o dia 26/07 para se inscrever como candidato(a) a representante de turma.
+          Após esse prazo, não serão aceitas inscrições atrasadas.
+          Assim que o período de inscrição for encerrado, será feita a seleção de um representante e um vice.
+          Participe, seja a voz da sua turma e ajude a construir a história da sua sala!
+        </p>
 
-      <div class="candidate">
-        <div class="candidate-info">
-          <img src="img/candidato1.png" alt="Matheus Reinhart" />
-          <h3>MATHEUS REINHART CAMARGO MARTINS CATARINO</h3>
-          <p>Fazendo assim você é o representante da turma Desenvolvimento de Sistema Multiplataforma (DSM) do 1° Semestre.</p>
+        <div class="card">
+          <div class="card-icon">
+            <img src="https://img.icons8.com/ios-filled/50/000000/conference-call.png" alt="Ícone de grupo">
+          </div>
+          <div class="card-content">
+            <p>
+              Eleja-se para se tornar representante da sua sala! As inscrições estão abertas a todos os alunos.
+            </p>
+            <a href="Eleja-se.html">CANDIDATE-SE JÁ</a>
+          </div>
         </div>
-        <div class="result-info">
-          <p>Parabéns Matheus Reinhart Camargo Martins Catarino</p>
-          <strong>VOCÊ FOI O ESCOLHIDO!!!</strong>
-          <p>Você foi a pessoa mais votada portanto venceu as eleições com:</p>
-          <div class="result-circle">65%</div>
-        </div>
-      </div>
-
-      <div class="candidate">
-        <div class="candidate-info">
-          <img src="img/candidato2.png" alt="Victor Hernandez" />
-          <h3>VICTOR HERNANDEZ SOARES DE ALMEIDA</h3>
-          <p>Fazendo assim você é o suplente da turma Desenvolvimento de Sistema Multiplataforma (DSM) do 1° Semestre.</p>
-        </div>
-        <div class="result-info">
-          <p>Você foi a segunda pessoa mais votada portanto ficou de Suplente com:</p>
-          <div class="result-circle">22%</div>
-        </div>
-      </div>
+      </section>
     </main>
 
+    <!--Footer-->
     <hr id="hrfoot1">
     <footer id="footerII">
       <div class="footer-container">
@@ -107,6 +106,8 @@
         <p>© 2002 - Centro Paula Souza - Desenvolvido por Vortex Inc - Todos os direitos reservados.</p>
       </div>
     </footer>
-  </script>
+    <script src="js/home.js"></script>
   </body>
 </html>
+    
+
