@@ -33,32 +33,41 @@
       <h2>Cadastro de Candidato</h2>
       <div class="form-container">
         <div class="foto-usuario">
-          <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Foto do usuário">
+          <label for="fileInput" style="cursor: pointer;">
+            <img id="preview" src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Foto do usuário">
+          </label>
+          <input type="file" id="fileInput" accept="image/*" style="display: none;">
         </div>
         <form>
-          <label for="nome">Nome:</label>
-          <input type="text" id="nome" name="nome" >
-
-          <label for="email">Email:</label>
-          <input type="email" id="email" name="email" >
+          <div id="linha">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome"  required autofocus>
+          </div>
+          
+          <div id="linha">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email"  required >
+          </div>
 
           <div class="row">
-            <div>
+            <div id="linha">
               <label for="matricula">Matrícula:</label>
-              <input type="text" id="matricula" name="matricula" disabled>
+              <input type="text" id="matricula" name="matricula" value="53903093831" disabled>
             </div>
-            <div>
+            <div id="linha">
               <label for="semestre">Semestre:</label>
-              <input type="text" id="semestre" name="semestre" disabled>
+              <input type="text" id="semestre" name="semestre" value="1° Semestre" style="width: 110px;" disabled>
             </div>
           </div>
 
-          <label for="curso">Curso:</label>
-          <input type="text" id="curso" name="curso">
-
-          <label for="descricao">Descrição:</label>
-          <textarea id="descricao" name="descricao" rows="3" placeholder="Fale um pouco sobre você"></textarea>
-          
+          <div id="linha">
+            <label for="curso">Curso:</label>
+            <input type="text" id="curso" name="curso" value="Desenvolvimento De Sistemas Multiplataforma" disabled>
+          </div>
+          <div id="linha">
+            <label for="descricao">Descrição:</label>
+            <textarea id="descricao" name="descricao" rows="3" placeholder="Fale um pouco sobre você"></textarea>
+          </div>
           <button id="btnCadastrar" class="btn-submit"type="button">Cadastrar-se</button>
           
         </form>

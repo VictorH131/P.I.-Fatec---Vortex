@@ -925,10 +925,10 @@ justify-content: center;
 }
 
 #mainelenao   .foto-usuario img {
-  width: 60px;
-  height: 60px;
+  width: 90px;
+  height: 90px;
   border-radius: 50%;
-  border: 1px solid #aaa;
+  border: 1px solid #0d2a53;
   padding: 10px;
 }
 
@@ -938,6 +938,7 @@ justify-content: center;
   font-size: 0.9rem;
   margin-top: 10px;
   color: #222;
+  margin-right: 8px;
 }
 
 #mainelenao   input,
@@ -945,15 +946,18 @@ textarea {
   width: 100%;
   padding: 8px;
   margin-top: 4px;
-  margin-bottom: 10px;
+  margin-bottom: 25px;
   border-radius: 6px;
   border: 1px solid #ccc;
   background-color: #eee;
+  resize: none;
+
 }
 
 #mainelenao    .row {
   display: flex;
   gap: 10px;
+
 }
 
 #mainelenao   .row input {
@@ -978,66 +982,315 @@ textarea {
 }
 
 
+#mainelenao #linha {
+  display: flex;
+  justify-content: center;
+}
 
 #btnCadastrar {
-      padding: 12px 24px;
-      font-size: 16px;
-      background-color: #006400;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
+  padding: 12px 24px;
+  font-size: 16px;
+  background-color: #006400;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
 
-    #btnCadastrar:hover {
-      background-color: #004d00;
-    }
+#btnCadastrar:hover {
+  background-color: #004d00;
+}
 
-    .popup-overlay {
-      display: none;
-      position: fixed;
-      z-index: 1000;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background-color: rgba(0, 0, 0, 0.4);
-      justify-content: center;
-      align-items: center;
-    }
+.popup-overlay {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  justify-content: center;
+  align-items: center;
+}
 
-    .popup-box {
-      background-color: #f1f1f1;
-      border: 2px solid #800000;
-      border-radius: 5px;
-      width: 280px;
-      text-align: center;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-      overflow: hidden;
-    }
+.popup-box {
+  background-color: #f1f1f1;
+  border: 2px solid #800000;
+  border-radius: 5px;
+  width: 280px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
 
-    .popup-box h2 {
-      margin-top: 15px;
-      color: #002147;
-    }
+.popup-box h2 {
+  margin-top: 15px;
+  color: #002147;
+}
 
-    .popup-box p {
-      margin: 10px 20px;
-      font-size: 14px;
-      color: #333;
-    }
+.popup-box p {
+  margin: 10px 20px;
+  font-size: 14px;
+  color: #333;
+}
 
-    .popup-box button {
-      width: 100%;
-      padding: 12px;
-      font-size: 16px;
-      background-color: #c00000;
-      color: white;
-      border: none;
-      border-radius: 0 0 5px 5px;
-      cursor: pointer;
-    }
+.popup-box button {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  background-color: #c00000;
+  color: white;
+  border: none;
+  border-radius: 0 0 5px 5px;
+  cursor: pointer;
+}
 
-    .popup-box button:hover {
-      background-color: #a00000;
-    }
+.popup-box button:hover {
+  background-color: #a00000;
+}
+  
+
+
+/* ------------------------ Main Votar (Escolha) ------------------------  */
+#mainvotar {
+  padding: 30px;
+}
+
+#mainvotar #h23 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: -15px;
+}
+
+#mainvotar .linha {
+  width: 100%;
+  max-width: 360px;
+  border: 2px solid #990000;
+  border-radius: 2px;
+  margin-top: 4px;
+}
+
+#mainvotar .votacoes-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 25px;
+  justify-content: center;
+}
+
+#mainvotar .card {
+  background-color: #0c2d52;
+  color: white;
+  border-radius: 12px;
+  padding: 15px;
+  width: 220px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+  height: 250px;         
+  overflow: hidden;       
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+#mainvotar .card:hover {
+  background-color: #153e72;
+}
+
+#mainvotar .card img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+#mainvotar .card button {
+  margin-top: 10px;
+  background-color: #d20000;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#mainvotar .card button:hover {
+  background-color: #a70000;
+}
+
+#mainvotar .card.destaque {
+  height: auto;           
+  width: 230px;           
+  transform: scale(1);    
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+#mainvotar .card .frase {
+  font-size: 13px;
+  margin-top: 10px;
+  padding: 0 10px;
+  display: none;          
+}
+
+#mainvotar .card.destaque .frase {
+  display: block;         
+}
+
+#centro {
+  max-width: 800px;
+  margin: 0 auto;
+
+}
+
+#mainvotar #centro p{
+  text-align: center;
+}
+
+#mainvotar .linha-completa {
+  display: flex;
+  align-items: center;
+  height: 10px;
+  margin: 20px 0;
+  margin-bottom: 40px;
+}
+
+#mainvotar .linha-grossa {
+  height: 15px;
+  width: 170px;
+  background-color: #800000;
+  border-radius: 10px;
+}
+
+#mainvotar  .linha-fina {
+  height: 3px;
+  flex-grow: 1;
+  background-color: #800000;
+}
+
+/* ------------------------ Main Votar (final) ------------------------  */
+
+#maindex {
+  max-width: 1000px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+
+#maindex h2 {
+  color: #002c5f;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #941616;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+#maindex .candidate {
+  display: flex;
+  gap: 30px;
+  margin: 30px 0;
+  align-items: center;
+}
+
+#maindex .candidate img {
+  border: 4px solid #002c5f;
+  width: 150px;
+  height: 180px;
+  object-fit: cover;
+}
+
+#maindex .candidate-info {
+  flex: 1;
+}
+
+#maindex .candidate-info h3 {
+  background-color: #002c5f;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  font-size: 14px;
+  text-transform: uppercase;
+  margin-top: 5px;
+}
+
+#maindex .result-info {
+  flex: 1;
+  text-align: center;
+}
+
+#maindex .result-info strong {
+  color: #002c5f;
+  font-size: 18px;
+  display: block;
+  margin: 5px 0;
+}
+
+#maindex .result-circle {
+  width: 70px;
+  height: 70px;
+  border: 3px solid #002c5f;
+  border-radius: 50%;
+  font-size: 28px;
+  font-weight: bold;
+  color: #002c5f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px auto;
+}
+
+
+/* ------------------------ Main ver cursos ------------------------  */
+
+#mainVer .content {
+    padding: 30px;
+}
+
+#mainVer .title-section {
+    font-weight: bold;
+    color: #223;
+    font-size: 18px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+#mainVer .underline {
+    width: 150px;
+    height: 3px;
+    background-color: #C00;
+    margin: 0 auto 30px auto;
+}
+
+#mainVer .course {
+    margin-bottom: 30px;
+}
+
+#mainVer .course-title {
+    font-weight: bold;
+    color: #223;
+    margin-bottom: 10px;
+}
+
+#mainVer .semester-blocks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+#mainVer .semester-block {
+    background-color: #eee;
+    border: 1px solid #ccc;
+    padding: 10px 20px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#mainVer .semester-block:hover {
+    background-color: #ddd;
+}
