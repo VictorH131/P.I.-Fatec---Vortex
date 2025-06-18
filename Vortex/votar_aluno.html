@@ -38,11 +38,18 @@
           <div class="linha-fina"></div>
         </div>
       </div>
+      
+      <div class="votacao-completo">
+        <button id="seta-esquerda">←</button>
+        <div class="votacoes-container">
+           <div id="votacoes" class="votacoes-container"></div>
+        </div>
+        <button id="seta-direita">→</button>
       </div>
-
-      <div id="votacoes" class="votacoes-container"></div>
+    
     </main>
 
+    
     <!--Footer-->
     <hr id="hrfoot1">
     <footer id="footerII">
@@ -92,6 +99,19 @@
         <p>© 2002 - Centro Paula Souza - Desenvolvido por Vortex Inc - Todos os direitos reservados.</p>
       </div>
     </footer>
+    
+    <div id="popup" style="display:none;" class="popup-container">
+      <div class="popup-box">
+        <h2>Aviso</h2>
+        <p>Você não pode alterar seu voto depois vai continuar.</p>
+        <p><strong>Clique OK para Continuar</strong></p>
+        <div class="popup-buttons">
+          <button onclick="fecharPopup()" class="btn-sair">SAIR</button>
+          <button onclick="confirmarVoto()" class="btn-ok">OK</button>
+        </div>
+      </div>
+    </div>
+
    <script src="js/votar_escolha.js"></script>
   </body>
 </html>

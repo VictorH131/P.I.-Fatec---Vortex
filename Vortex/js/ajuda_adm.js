@@ -11,51 +11,56 @@ const popupSugestao = `
 </div>
 `;
 
-document.body.insertAdjacentHTML("beforeend", popupSugestao);
+// Popup de erro
+const popupErro = `
+<div id="popupErroMensagem" class="popup-overlay">
+    <div class="popup-box">
+        <h2>Error!</h2>
+        <p>Por favor, escreva uma sugestão antes de enviar.</p>
+        <button id="fecharPopupErroMensagem">OK</button>
+    </div>
+</div>
+`;
 
+document.body.insertAdjacentHTML("beforeend", popupSugestao);
+document.body.insertAdjacentHTML("beforeend", popupErro);
 
 document.addEventListener("DOMContentLoaded", () => {
-        const btnEnviar = document.querySelector(".sugestoes button");
-        const popup = document.getElementById("popupSugestao");
-        const fechar = document.getElementById("fecharPopupSugestao");
-        const textarea = document.querySelector(".sugestoes textarea");
+    const btnEnviar = document.querySelector(".sugestoes button");
+    const popup = document.getElementById("popupSugestao");
+    const fechar = document.getElementById("fecharPopupSugestao");
+    const textarea = document.querySelector(".sugestoes textarea");
 
-        // Abre popup 
-        btnEnviar.addEventListener("click", () => {
-                popup.style.display = "flex";
-            }
-        );
+    const popupErro = document.getElementById("popupErroMensagem");
+    const fecharPopupErro = document.getElementById("fecharPopupErroMensagem");
 
-        // Fecha popup
-        fechar.addEventListener("click", () => {
-                popup.style.display = "none";
-                textarea.value = ""; // Limpa o conteúdo do textarea
-            }
-        );
+    // Abre popup de sucesso ou erro
+    btnEnviar.addEventListener("click", () => {
+        if (textarea.value.trim() !== "") {
+            popup.style.display = "flex";
+        } else {
+            popupErro.style.display = "flex";
+        }
+    });
 
-        // Fecha ao clicar fora 
-        window.addEventListener("click", function (e) {
-                if (e.target === popup) {
-                    popup.style.display = "none";
-                    textarea.value = ""; 
-                }
-            }
-        );
-    }
-);
+    // Fecha popup de sucesso
+    fechar.addEventListener("click", () => {
+        popup.style.display = "none";
+        textarea.value = "";
+    });
 
+    // Fecha popup de erro
+    fecharPopupErro.addEventListener("click", () => {
+        popupErro.style.display = "none";
+    });
 
-
-document.addEventListener("DOMContentLoaded", function () {
-const perguntas = document.querySelectorAll(".faq-pergunta");
-
-perguntas.forEach(pergunta => {
-    pergunta.addEventListener("click", function () {
-    const item = this.parentElement;
-    item.classList.toggle("ativo");
+    // Fecha ao clicar fora
+    window.addEventListener("click", function (e) {
+        if (e.target === popup) {
+            popup.style.display = "none";
+            textarea.value = "";
+        } else if (e.target === popupErro) {
+            popupErro.style.display = "none";
+        }
     });
 });
-});
-
-
-
