@@ -602,7 +602,7 @@ justify-content: center;
 }
 
 #mainajuda .faq-item {
-  margin-bottom: 35px;
+  margin-bottom: 15px;
   padding: 10px;
   border-radius: 6px;
   transition: background-color 0.3s;
@@ -625,7 +625,7 @@ justify-content: center;
   background-color: #ddd;
 }
 #mainajuda .faq-item.ativo .faq-pergunta {
-  background-color: #fff;
+  background-color: #cecece;
 }
 
 #mainajuda .faq-resposta {
@@ -681,12 +681,6 @@ justify-content: center;
   cursor: pointer;
   color: #444;
 }
-
-
-
-
-/* popup erro */
-
 
 .popup-overlay {
     position: fixed;
@@ -970,20 +964,6 @@ justify-content: center;
   padding: 30px;
 }
 
-#mainelenao  .foto-usuario {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
-}
-
-#mainelenao   .foto-usuario img {
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  border: 1px solid #0d2a53;
-  padding: 10px;
-}
-
 #mainelenao   label {
   display: block;
   text-align: left;
@@ -991,6 +971,8 @@ justify-content: center;
   margin-top: 10px;
   color: #222;
   margin-right: 8px;
+  margin-bottom: -17px;
+  
 }
 
 #mainelenao input,
@@ -999,20 +981,20 @@ justify-content: center;
   padding: 8px;
   margin-top: 4px;
   margin-bottom: 25px;
-  border-radius: 6px;
-  border: 1px solid #afafaf;
-  background-color: #eee;
+  border-radius: 18px;
+  border: 1px solid #0d2a53;
+  background-color: #f1f1f1;
   resize: none;
-
+  padding-right: 2px;
 }
 
-#mainelenao    .row {
+#mainelenao  .row {
   display: flex;
   gap: 10px;
 
 }
 
-#mainelenao   .row input {
+#mainelenao .row input {
   flex: 1;
 }
 
@@ -1020,10 +1002,11 @@ justify-content: center;
   background-color: #c00;
   color: white;
   font-weight: bold;
+  font-size: 20px;
   border: none;
-  border-radius: 6px;
+  border-radius: 12px;
   padding: 10px;
-  width: 100%;
+  width: 200px;
   cursor: pointer;
   margin-top: 10px;
   transition: background 0.3s ease;
@@ -1047,19 +1030,6 @@ justify-content: center;
   justify-content: center;
 }
 
-#btnCadastrar {
-  padding: 12px 24px;
-  font-size: 16px;
-  background-color: #006400;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-#btnCadastrar:hover {
-  background-color: #004d00;
-}
 
 .popup-overlay {
   display: none;
@@ -1109,7 +1079,50 @@ justify-content: center;
 .popup-box button:hover {
   background-color: #a00000;
 }
+
+#mainelenao .foto-usuario {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+#mainelenao .foto-container {
+  position: relative;
+  display: inline-block;
+}
+
+#mainelenao .foto-label {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+#mainelenao .foto-label img#preview {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 2px solid #0d2a53;
+  padding: 10px;
+  background-color: #b7bbff56;
+}
+
+#mainelenao .foto-label img#preview:hover {
+  border: 2px  dashed #0d2a53;
+  background-color: #b7bbff56;
   
+}
+#mainelenao .icone-upload {
+  position: absolute;
+  bottom: 2px;
+  right: 4px;
+  width: 30px;
+  height: 30px;
+}
+
+#mainelenao input[type="file"] {
+  display: none;
+}
 
 /* ------------------------ Main Votar (inicial) ------------------------  */
 
@@ -1191,6 +1204,9 @@ justify-content: center;
 
 
 /* ------------------------ Main Votar (Escolha) ------------------------  */
+
+
+
 #mainvotar {
   padding: 30px;
   margin-bottom: 150px;
@@ -1200,6 +1216,8 @@ justify-content: center;
   font-size: 20px;
   font-weight: bold;
   margin-bottom: -15px;
+  color: #1a355e;
+  margin-left: 10px;
 }
 
 #mainvotar .linha {
@@ -1259,7 +1277,9 @@ justify-content: center;
   border-radius: 20px;
   font-weight: bold;
   cursor: pointer;
+  top: 25px;
 }
+
 
 #mainvotar .card button:hover {
   background-color: #a70000;
@@ -1303,7 +1323,7 @@ justify-content: center;
 
 #mainvotar .linha-grossa {
   height: 15px;
-  width: 170px;
+  width: 195px;
   background-color: #800000;
   border-radius: 10px;
 }
@@ -1361,75 +1381,406 @@ justify-content: center;
   position: relative;
 }
 
-.download-icon-btn {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background-color: transparent;
+#mainvotar .card .nome-candidato {
+  min-height: 68px;  /* edita altura  //  não é gpt, o codigo esta ruim :) */
+}
+
+#popupvotarestcolha {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+#popupvotarestcolha .popup-box {
+  background: #e1e1e1;
+  padding: 25px 30px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+#popupvotarestcolha .popup-box h2 {
+  margin-top: 0;
+  font-size: 24px;
+}
+
+#popupvotarestcolha .popup-box p {
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+#popupvotarestcolha .popup-buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+  gap: 15px;
+}
+
+#popupvotarestcolha .popup-buttons button {
+  padding: 10px 20px;
   border: none;
+  border-radius: 10px;
+  font-weight: bold;
   cursor: pointer;
-  padding: 5px;
+  transition: background-color 0.3s ease;
 }
 
-.download-icon-btn img {
-  width: 25px;
-  height: 25px;
+#popupvotarestcolha .btn-ok {
+  background-color: #d20000;
+  color: white;
 }
 
+#popupvotarestcolha .btn-ok:hover {
+  background-color: #a70000;
+}
+
+#popupvotarestcolha .btn-sair {
+  background-color: #0c2d52;
+  color: white;
+}
+
+#popupvotarestcolha .btn-sair:hover {
+  background-color: #062042;
+}
+
+#mainvotar .card button.botao-votado {
+  background-color: #28a745;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 20px;
+  cursor: default;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70px;
+  height: 30px;
+}
+
+.botao-votado img.icone-voto {
+  max-width:  25px;
+  max-height: 25px;
+  margin-top: 10px;
+}
+
+.direcaoPopup-container {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.direcaoPopup-box {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 320px;
+  text-align: center;
+}
+
+.direcaoPopup-buttons {
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-around;
+  
+}
+
+
+.direcaoPopup-box .direcaoPopup-buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+  gap: 15px;
+}
+
+
+.direcaoPopup-box .direcaoPopup-buttons button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.direcaoPopup-box .btn-ok {
+  background-color: #d20000;
+  color: white;
+}
+
+.direcaoPopup-box .btn-ok:hover {
+  background-color: #a70000;
+}
+
+.direcaoPopup-box .btn-sair {
+  background-color: #0c2d52;
+  color: white;
+}
+
+.direcaoPopup-box .btn-sair:hover {
+  background-color: #062042;
+}
 
 
 /* ------------------------ Main Votar (final) ------------------------  */
   
 
 
+#maindex {
+  max-width: 1000px;
+  margin: 30px auto;
+  padding: 0 20px;
+  
+}
+
+#maindex h2 {
+  color: #002c5f;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+#maindex .linha-completa {
+  display: flex;
+  align-items: center;
+  height: 10px;
+  margin: 20px 0 -10px;
+}
+
+#maindex .linha-grossa {
+  height: 15px;
+  width: 250px;
+  background-color: #800000;
+  border-radius: 10px;
+}
+
+#maindex .linha-fina {
+  height: 3px;
+  flex-grow: 1;
+  background-color: #800000;
+}
+
+#maindex .candidate {
+  position: relative;
+  display: flex;
+  gap: 30px;
+  margin: 30px 0;
+  align-items: flex-start;
+  background-color: #d4d4d465;
+  padding: 15px;
+  border: 1px solid #00388b;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+#maindex .candidate-info {
+  flex: 1;
+  max-width: 280px;
+}
+
+#maindex .candidate-info img {
+  width: 270px;
+  height: 300px;
+  object-fit: cover;
+  border: 4px solid #002c5f;
+  border-radius: 10px;
+  display: block;
+  margin: 0 auto;
+}
+
+#maindex .candidate-info h3 {
+  background-color: #002c5f;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  font-size: 14px;
+  text-transform: uppercase;
+  margin-top: 5px;
+  border-radius: 5px;
+}
+
+#maindex .candidate-info p {
+  font-size: 13px;
+  margin-top: 10px;
+}
+
+#maindex .result-info {
+  flex: 1;
+  text-align: center;
+  padding: 10px 0;
+  margin-top: 30px;
+}
+
+#maindex .result-info p {
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+#maindex .result-info strong {
+  color: #002c5f;
+  font-size: 20px;
+  display: block;
+  margin: 10px 0;
+}
+
+
+.result-circle {
+  width: 100px;
+  height: 100px;
+  font-size: 50px;
+  font-weight: bold;
+  border: 4px solid #00254e;
+  border-radius: 50%;
+  color: #002c5f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px auto;
+  margin-top: 80px;
+  background-image: url("../img/fundo_circlo.png"); 
+  background-size: cover;
+  background-position: center;
+}
+
+
+#maindex .icon-footer {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  display: flex;
+  gap: 5px;
+
+}
+
+#maindex .icon-footer img {
+  max-width: 90px;
+  height: 35px;
+  padding-right: 15px;
+}
+
+
+
+
 /* ------------------------ Main ver cursos ------------------------  */
 
 
-
 #mainVer .content {
-    padding: 30px;
+    max-width: 800px;
+    margin: 50px auto 0;
+    margin-bottom: 150px;
+    padding: 20px;
 }
 
 #mainVer .title-section {
     font-weight: bold;
     color: #223;
-    font-size: 18px;
+    font-size: 20px;
     margin-bottom: 10px;
     text-align: center;
 }
 
 #mainVer .underline {
-    width: 150px;
+    width: 120px;
     height: 3px;
-    background-color: #C00;
-    margin: 0 auto 30px auto;
+    background-color: #00254e;
+    margin: 0 auto 20px;
 }
 
 #mainVer .course {
-    margin-bottom: 30px;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    background-color: #f9f9ff;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 5px rgba(0,0,0,0.05);
 }
 
-#mainVer .course-title {
+#mainVer .course-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+    cursor: pointer;
     font-weight: bold;
     color: #223;
-    margin-bottom: 10px;
+    transition: background-color 0.2s;
+    border-radius: 10px;
+}
+
+#mainVer .course-header:hover {
+    background-color: #dce9ff;
+}
+
+#mainVer .dropdown-icon {
+    transition: transform 0.3s ease;
+    font-size: 16px;
+}
+
+#mainVer .course.active .dropdown-icon {
+    transform: rotate(180deg);
 }
 
 #mainVer .semester-blocks {
-    display: flex;
+    display: none; 
     flex-wrap: wrap;
+    justify-content: center;
     gap: 10px;
+    padding: 15px 20px;
+    box-sizing: border-box;
 }
 
+#mainVer .course.active .semester-blocks {
+    display: flex; 
+    border: 2px solid #00254e; 
+    border-radius: 10px;
+    background-color: #f9f9ff;
+}
+
+
 #mainVer .semester-block {
-    background-color: #eee;
+    background-color: #fff;
     border: 1px solid #ccc;
-    padding: 10px 20px;
-    border-radius: 3px;
+    padding: 8px 16px;
+    border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    font-weight: bold;
+    transition: background-color 0.2s;
+    color: #000;
+    text-decoration: none;
 }
 
 #mainVer .semester-block:hover {
-    background-color: #ddd;
+    background-color: #eee;
+}
+
+
+#mainVer .linha-completa {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 900px;
+  margin: -8px auto 50px auto; 
+}
+
+#mainVer .linha-fina {
+  flex-grow: 1;
+  height: 3px; 
+  background-color: #800000;
+}
+
+#mainVer .linha-grossa {
+  width: 150px;
+  height: 18px;
+  background-color: #800000;
+  border-radius: 10px;
+  
 }

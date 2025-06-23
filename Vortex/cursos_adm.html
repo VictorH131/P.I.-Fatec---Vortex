@@ -32,45 +32,59 @@
    <main id="mainVer">   
         <div class="content">
             <div class="title-section">Resultados</div>
-            <div class="underline"></div>
+
+           <div class="linha-completa">
+            <div class="linha-fina"></div>
+            <div class="linha-grossa"></div>
+            <div class="linha-fina"></div>
+          </div>
 
             <!-- Curso DSM -->
             <div class="course">
-                <div class="course-title">DSM - Desenvolvimento de Software Multiplataforma</div>
-                <div class="semester-blocks">
-                    <div class="semester-block" onclick="goTo('DSM',1)">1º SEMESTRE</div>
-                    <div class="semester-block" onclick="goTo('DSM',2)">2º SEMESTRE</div>
-                    <div class="semester-block" onclick="goTo('DSM',3)">3º SEMESTRE</div>
-                    <div class="semester-block" onclick="goTo('DSM',4)">4º SEMESTRE</div>
-                    <div class="semester-block" onclick="goTo('DSM',5)">5º SEMESTRE</div>
-                    <div class="semester-block" onclick="goTo('DSM',6)">6º SEMESTRE</div>
-                </div>
+              <div class="course-header" onclick="toggleCourse(this)">
+                <span class="course-title">DSM - Desenvolvimento de Software Multiplataforma</span>
+                <span class="dropdown-icon">▼</span>
+              </div>
+              <div class="semester-blocks">
+                <a class="semester-block" href="criar_votação_adm.html">1º SEMESTRE</a>
+                <div class="semester-block" onclick="goTo('DSM',2)">2º SEMESTRE</div>
+                <div class="semester-block" onclick="goTo('DSM',3)">3º SEMESTRE</div>
+                <div class="semester-block" onclick="goTo('DSM',4)">4º SEMESTRE</div>
+                <div class="semester-block" onclick="goTo('DSM',5)">5º SEMESTRE</div>
+                <div class="semester-block" onclick="goTo('DSM',6)">6º SEMESTRE</div>
+              </div>
             </div>
 
             <!-- Curso GI -->
             <div class="course">
-                <div class="course-title">GI - Gestão Industrial</div>
-                <div class="semester-blocks">
-                    <div class="semester-block" onclick="goTo('GI',1)">1º SEMESTRE</div>
-                    <div class="semester-block" onclick="goTo('GI',2)">2º SEMESTRE</div>
-                    <div class="semester-block" onclick="goTo('GI',3)">3º SEMESTRE</div>
-                    <div class="semester-block" onclick="goTo('GI',4)">4º SEMESTRE</div>
-                    <div class="semester-block" onclick="goTo('GI',5)">5º SEMESTRE</div>
-                    <div class="semester-block" onclick="goTo('GI',6)">6º SEMESTRE</div>
-                </div>
+              <div class="course-header" onclick="toggleCourse(this)">
+                <span class="course-title">GI - Gestão Industrial</span>
+                <span class="dropdown-icon">▼</span>
+              </div>
+              <div class="semester-blocks">
+                <div class="semester-block" onclick="goTo('GI',1)">1º SEMESTRE</div>
+                <div class="semester-block" onclick="goTo('GI',2)">2º SEMESTRE</div>
+                <div class="semester-block" onclick="goTo('GI',3)">3º SEMESTRE</div>
+                <div class="semester-block" onclick="goTo('GI',4)">4º SEMESTRE</div>
+                <div class="semester-block" onclick="goTo('GI',5)">5º SEMESTRE</div>
+                <div class="semester-block" onclick="goTo('GI',6)">6º SEMESTRE</div>
+              </div>
             </div>
 
             <!-- Curso GE -->
             <div class="course">
-                <div class="course-title">GE - Gestão Empresarial</div>
-                <div class="semester-blocks">
-                    <div class="semester-block" onclick="goTo('GE',1)">1º SEMESTRE</div>
-                    <div class="semester-block" onclick="goTo('GE',2)">2º SEMESTRE</div>
-                    <div class="semester-block" onclick="goTo('GE',3)">3º SEMESTRE</div>
-                    <div class="semester-block" onclick="goTo('GE',4)">4º SEMESTRE</div>
-                    <div class="semester-block" onclick="goTo('GE',5)">5º SEMESTRE</div>
-                    <div class="semester-block" onclick="goTo('GE',6)">6º SEMESTRE</div>
-                </div>
+              <div class="course-header" onclick="toggleCourse(this)">
+                <span class="course-title">GE - Gestão Empresarial</span>
+                <span class="dropdown-icon">▼</span>
+              </div>
+              <div class="semester-blocks">
+                <div class="semester-block" onclick="goTo('GE',1)">1º SEMESTRE</div>
+                <div class="semester-block" onclick="goTo('GE',2)">2º SEMESTRE</div>
+                <div class="semester-block" onclick="goTo('GE',3)">3º SEMESTRE</div>
+                <div class="semester-block" onclick="goTo('GE',4)">4º SEMESTRE</div>
+                <div class="semester-block" onclick="goTo('GE',5)">5º SEMESTRE</div>
+                <div class="semester-block" onclick="goTo('GE',6)">6º SEMESTRE</div>
+              </div>
             </div>
         </div>
     </main>
@@ -121,5 +135,29 @@
         <p>© 2002 - Centro Paula Souza - Desenvolvido por Vortex Inc - Todos os direitos reservados.</p>
       </div>
     </footer>
+
+
+
+    <script>
+
+  function toggleCourse(headerElement) {
+    const courseElement = headerElement.parentElement;
+    const isActive = courseElement.classList.contains('active');
+
+    // Fecha todos
+    document.querySelectorAll('#mainVer .course').forEach(course => {
+        course.classList.remove('active');
+        course.querySelector('.semester-blocks').style.display = 'none';
+    });
+
+    // Se não estava ativo, abre este
+    if (!isActive) {
+        courseElement.classList.add('active');
+        courseElement.querySelector('.semester-blocks').style.display = 'flex';
+    }
+  }
+
+      
+    </script>
 </body>
 </html>

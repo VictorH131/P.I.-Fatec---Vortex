@@ -64,3 +64,18 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const faqItems = document.querySelectorAll("#mainajuda .faq-item");
+
+  faqItems.forEach(item => {
+    const pergunta = item.querySelector(".faq-pergunta");
+
+    pergunta.addEventListener("click", () => {
+      
+      item.classList.toggle("ativo");
+    });
+  });
+});
