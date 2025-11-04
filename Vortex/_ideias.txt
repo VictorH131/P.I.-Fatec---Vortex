@@ -1,3 +1,0 @@
-ideias para imprlementar
-    - alerta de erro nos logins
-    -animaçoes entre as paginas
