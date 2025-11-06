@@ -3,7 +3,7 @@
 
 
   if (isset($_SESSION['logado']) && $_SESSION['logado'] === true) {
-      header("Location: Sessão_aluno/home_aluno.php");
+      header("Location: Sessão_adm/home_adm.php");
       exit;
   }
   // Gera CSRF token (proteção contra falsificação de requisições)
@@ -15,7 +15,7 @@
   $aviso = $_SESSION['aviso'] ?? null;
   unset($_SESSION['aviso']);
 
-  $_SESSION['class'] = "aluno";
+  $_SESSION['class'] = "adm";
 
 
 ?>
@@ -40,7 +40,7 @@
     <hr id="hrhead1">
   </header>
 
-  <!--Main -->
+  <!--Main-->
   <a href="index.html" class="voltar">
     <img src="img/icones/exit.svg">
     Voltar
@@ -49,35 +49,26 @@
   <main id="mainlogin">
     <div class="login-box">
       <h2>LOGIN</h2>
-      <h3>ALUNO</h3>
-
-      <?php if (!empty($aviso)): ?>
-        <p style="color: <?= str_contains($aviso, 'sucesso') ? 'green' : 'red' ?>; text-align: center;">
-          <?= htmlspecialchars($aviso); ?>
-        </p>
-      <?php endif; ?>
+      <h3>COORDENAÇÃO</h3>
 
       <form action="includes/processa_login.php" method="post">
         <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
 
         <div id="linha">
-          <label for="Email">EMAIL:</label>
-          <input type="email" id="email" name="email" placeholder="Email Institucional" required autofocus>
+          <label for="usuario">USUÁRIO</label>
+          <input type="text" id="usuario" name="email" placeholder="Nº da Matrícula" required autofocus>
         </div>
 
         <div id="linha">
-          <label for="senha">SENHA:</label>
+          <label for="senha">SENHA</label>
           <input type="password" id="senha" name="senha" placeholder="Sua Senha" required>
         </div>
 
         <button type="submit">ACESSAR</button>
-
-        <div id="linha">
-          <a href="ajuda_login.html" class="ajuda">Precisa De Ajuda?</a>
-        </div>
       </form>
     </div>
   </main>
+
 
   <!--Footer-->
   <hr id="hrfoot1">
@@ -105,3 +96,5 @@
   </footer>
 </body>
 </html>
+
+    
