@@ -61,10 +61,11 @@
                             'id' => $usuario['id_aluno'],
                             'nome' => $usuario['nome'],
                             'matricula' => $usuario['matricula'],
+                            'class' => $_SESSION['class'],
                             'email' => $email
                         ];
                         $_SESSION['logado'] = true; // guarda sessão
-                        header('Location: ../Sessão_aluno/home_aluno.php');
+                        header('Location: ../Sessao_aluno/home_aluno.php');
                         exit;
                     } else {
                         // Senha incorreta
@@ -149,10 +150,11 @@
                             'id' => $adm['id_adm'],
                             'nome' => $adm['nome'],
                             'matricula' => $adm['matricula_docente'],
+                            'class' => $_SESSION['class'],
                             'email' => $email
                         ];
                         $_SESSION['logado'] = true;
-                        header('Location: ../Sessão_adm/home_adm.php');
+                        header('Location: ../Sessao_adm/home_adm.php');
                         exit;
 
                     } else {

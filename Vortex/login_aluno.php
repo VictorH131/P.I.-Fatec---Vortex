@@ -1,11 +1,16 @@
 <?php
   session_start();
 
+  $class = '';
 
-  if (isset($_SESSION['logado']) && $_SESSION['logado'] === true) {
-      header("Location: Sessão_aluno/home_aluno.php");
+  if(isset($_SESSION['logado']) && $_SESSION['logado'] === true){
+    if ($class == 'aluno') {
+      header("Location: Sessao_aluno/home_aluno.php");
       exit;
+    } 
   }
+
+  
   // Gera CSRF token (proteção contra falsificação de requisições)
   if (!isset($_SESSION['csrf_token'])) {
       $_SESSION['csrf_token'] = bin2hex(random_bytes(32));

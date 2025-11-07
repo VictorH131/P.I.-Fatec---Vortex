@@ -4,7 +4,7 @@
     <footer id="footerII">
       <div class="footer-container">
         <div id="logoVor">
-            <img src="img/LOGO_VORTEX.png" class="logo-vortex" alt="Logo Vortex">
+            <img src="../img/LOGO_VORTEX.png" class="logo-vortex" alt="Logo Vortex">
         </div>
         
         
@@ -21,8 +21,8 @@
           <div id="colunaas">
             <div >
               <h2>Telefone:</h2> 
-              <p><img src="img/icones/phone.svg" >(19) 3843-1996 </p>
-              <p><img src="img/icones/whats.svg">(19) 3863-5210</p>
+              <p><img src="../img/icones/phone.svg" >(19) 3843-1996 </p>
+              <p><img src="../img/icones/whats.svg">(19) 3863-5210</p>
             </div>
           </div>
 
@@ -39,12 +39,12 @@
         
 
         <div class="direita">
-          <img src="img/logo_cps_branca.png" alt="Logo CPS">
+          <img src="../img/logo_cps_branca.png" alt="Logo CPS">
         </div>
       </div>
 
       <div class="politica">
-        <a href="Politicas_alunos.html">Políticas e Privacidade</a>
+        <a href="../Sessao_geral/Politicas.php">Políticas e Privacidade</a>
         <p>© 2002 - Centro Paula Souza - Desenvolvido por Vortex Inc - Todos os direitos reservados.</p>
       </div>
     </footer>

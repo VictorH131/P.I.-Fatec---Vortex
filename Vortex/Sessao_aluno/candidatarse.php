@@ -1,8 +1,9 @@
 <?php
   include '../includes/session.php'; // Verifica se esta logado
-  include '../includes/header_aluno.php'; // header do aluno
-  echo '<title>Boas Vindas - Vortex</title>'; // totilo da pagina
+  include '../includes/header_aluno.php'; // header 
+  echo '<title>Boas Vindas - Vortex</title>'; // titulo da pagina
   
+  $data = "a";
 ?>
     <!--Main index-->
     <main id="mainvotarinicio">
@@ -13,7 +14,7 @@
           <div class="linha-fina"></div>
         </div>
         <p>
-          Você tem até o dia 26/07 para se inscrever como candidato(a) a representante de turma.
+          Você tem até o dia <?php echo $data; ?> para se inscrever como candidato(a) a representante de turma.
           Após esse prazo, não serão aceitas inscrições atrasadas.
           Assim que o período de inscrição for encerrado, será feita a seleção de um representante e um vice.
           Participe, seja a voz da sua turma e ajude a construir a história da sua sala!
@@ -32,8 +33,6 @@
         </div>
       </section>
     </main>
-
-     <script src="../js/home.js"></script>
 <?php
   include '../includes/footer.php';
 

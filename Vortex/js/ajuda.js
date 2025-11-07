@@ -6,7 +6,7 @@ const popupSugestao = `
         <h2>Sugestão Enviada!</h2>
         <p>Agradecemos por compartilhar sua ideia conosco. Sua sugestão foi registrada com sucesso e será analisada por nossa equipe com carinho.</p>
         <p>Prezamos pela sua opinião e acreditamos que ela pode contribuir para tornar nosso ambiente acadêmico ainda melhor.</p>
-        <p>Lembramos que nenhuma informação pessoal é vinculada a esse envio. Tudo é tratado de forma anônima e segura, conforme nossa <a href="Politicas_alunos.html" target="_blank">Política de Privacidade</a>.</p>
+        <p>Lembramos que nenhuma informação pessoal é vinculada a esse envio. Tudo é tratado de forma anônima e segura, conforme nossa <a href="../Sessao_geral/Politicas.php" target="_blank">Política de Privacidade</a>.</p>
     </div>
 </div>
 `;
