@@ -1,6 +1,6 @@
 <?php
   include '../includes/session.php'; // Verifica se esta logado
-  include '../includes/header_adm.php'; // header do aluno
+  include '../includes/header_' . $_SESSION['usuario']['class'] . '.php'; // header do aluno
   echo '<title>Sobre - Vortex</title>'; // titulo da pagina
 
 ?>

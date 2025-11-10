@@ -1,6 +1,6 @@
 <?php
   include '../includes/session.php'; // Verifica se esta logado
-  include '../includes/header_' . $_SESSION['usuario']['class'] . '.php'; // header 
+  include '../includes/header_adm.php'; // header 
   echo '<title>Boas Vindas - Vortex</title>'; // titulo da pagina
   
 ?>
@@ -27,7 +27,7 @@
           <div class="texto-voto">
             <h3>Gerenciar votações</h3>
             <p>Como administrador, gerencie as votações em andamento em todos os cursos presentes em sua instituição de ensino.</p>
-            <a href="cursos_adm.html" class="botao-leia">Ver Cursos</a>
+            <a href="votar_adm.php" class="botao-leia">Ver Cursos</a>
           </div>
         </div>
         
@@ -36,7 +36,6 @@
     <script src="../js/home.js"></script>
 <?php
   include '../includes/footer.php';
-
 ?>
     
 

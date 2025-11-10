@@ -8,6 +8,8 @@
     }
  
     //pega o nome do usuario
-   $nomeUsuario = $_SESSION['usuario']['nome'];
-   $class = $_SESSION['usuario']['class'];
+    $nomeUsuario = $_SESSION['usuario']['nome'];
+    $class = $_SESSION['usuario']['class'];
+    $id_adm = $_SESSION['usuario']['id'];
+
 ?>

@@ -26,8 +26,8 @@
             }
 
             if ($_SESSION['login_attempts'] >= 7) {
-                if (time() - $_SESSION['last_attempt'] < 180) { // 3 minutos
-                    $_SESSION['aviso'] = "Muitas tentativas. Tente novamente em 3 minutos.";
+                if (time() - $_SESSION['last_attempt'] < 20) { // 20 segundos
+                    $_SESSION['aviso'] = "Muitas tentativas. Tente novamente em 5 minutos.";
                     header('Location: ../login_aluno.php');
                     exit;
                 } else {

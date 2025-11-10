@@ -21,7 +21,7 @@
     <!-- nav -->
     <nav class="navbar">
       <a href="../Sessao_adm/home_adm.php" id="home">Home</a>
-      <a href="../Sessao_adm/votar_adm.html">Votação</a>
+      <a href="../Sessao_adm/votar_adm.php">Votação</a>
       <a href="../Sessao_geral/sobre.php">Sobre</a>
       <a href="../Sessao_geral/ajuda.php">Ajuda</a>
       <a href="../includes/logoff.php">Sair</a>

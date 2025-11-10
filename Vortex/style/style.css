@@ -1647,125 +1647,84 @@ body {
 
 /* ------------------------ Main ver cursos ------------------------  */
 
-
 #mainVer .content {
-  max-width: 800px;
-  margin: 50px auto 0;
-  margin-bottom: 150px;
-  padding: 20px;
+  max-width: 1000px;
+  margin: 100px auto 280px auto;
+  background: #ffffff;
+  padding: 80px 70px; 
+  border-radius: 22px;
+  box-shadow: 0px 15px 50px rgba(0, 0, 0, 0.28); 
 }
+
+
 
 #mainVer .title-section {
   font-weight: bold;
   color: #223;
-  font-size: 20px;
-  margin-bottom: 10px;
+  font-size: 26px;
   text-align: center;
+  margin-bottom: 75px;
 }
 
-#mainVer .underline {
-  width: 120px;
-  height: 3px;
-  background-color: #00254e;
-  margin: 0 auto 20px;
-}
-
-#mainVer .course {
-  border: 2px solid transparent;
-  border-radius: 10px;
-  background-color: #f9f9ff;
-  margin-bottom: 15px;
-  transition: all 0.3s ease;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
-}
-
-#mainVer .course-header {
+#mainVer .filtro-container {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 20px;
-  cursor: pointer;
-  font-weight: bold;
-  color: #223;
-  transition: background-color 0.2s;
-  border-radius: 10px;
-}
-
-#mainVer .course-header:hover {
-  background-color: #dce9ff;
-}
-
-#mainVer .dropdown-icon {
-  transition: transform 0.3s ease;
-  font-size: 16px;
-}
-
-#mainVer .course.active .dropdown-icon {
-  transform: rotate(180deg);
-}
-
-#mainVer .semester-blocks {
-  display: none;
+  justify-content: center;
+  gap: 18px;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-  padding: 15px 20px;
-  box-sizing: border-box;
+  margin-bottom: 45px;
 }
 
-#mainVer .course.active .semester-blocks {
-  display: flex;
-  border: 2px solid #00254e;
-  border-radius: 10px;
-  background-color: #f9f9ff;
-}
-
-
-#mainVer .semester-block {
-  background-color: #fff;
+#mainVer .filtro-input,
+#mainVer .filtro-select {
+  padding: 12px 16px;
+  border-radius: 8px;
   border: 1px solid #ccc;
-  padding: 8px 16px;
-  border-radius: 5px;
+  outline: none;
+  font-size: 15px;
+  min-width: 180px;
+}
+
+#mainVer .filtro-input:focus,
+#mainVer .filtro-select:focus {
+  border-color: #00254e;
+}
+
+#mainVer .filtro-btn {
+  background-color: #3d4eb0;
+  color: #fff;
+  padding: 12px 28px;
+  border: none;
+  border-radius: 8px;
   cursor: pointer;
+  transition: 0.2s;
+  font-size: 15px;
   font-weight: bold;
-  transition: background-color 0.2s;
-  color: #000;
-  text-decoration: none;
 }
 
-#mainVer .semester-block:hover {
-  background-color: #eee;
+#mainVer .filtro-btn:hover {
+  background-color: #2a2980;
 }
 
 
-#mainVer .linha-completa {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  max-width: 900px;
-  margin: -8px auto 50px auto;
-}
-
-#mainVer .linha-fina {
-  flex-grow: 1;
-  height: 3px;
-  background-color: #800000;
-}
-
-#mainVer .linha-grossa {
-  width: 150px;
-  height: 18px;
-  background-color: #800000;
-  border-radius: 10px;
-
-}
 
 
-/* ------------------------ Main Criar Votações ------------------------  */
+/* ------------------------ Main Votações ------------------------  */
 
 
-#maincriavot .container {
+
+
+
+
+
+
+
+
+
+
+
+
+
+#maincriavoto .container {
   max-width: 800px;
   margin: 30px auto;
   padding: 0 20px;
@@ -1773,9 +1732,157 @@ body {
   margin-bottom: 60px;
 }
 
+#maincriavoto h2 {
+  text-align: left;
+  color: #002D62;
+  display: inline-block;
+  padding-bottom: 5px;
+  margin-bottom: 8px;
+  margin-top: 50px;
+}
+
+#maincriavoto .subtitulo {
+  font-weight: bold;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+#maincriavoto .btn-criar {
+  background-color: #002D62;
+  color: white;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  float: right;
+  margin-top: -40px;
+}
+
+#maincriavoto .caixa-info {
+  background-color: #eef3ff;
+  border: 1px solid #002D62;
+  padding: 30px;
+  border-radius: 5px;
+  margin: 20px auto;
+  max-width: 500px;
+  text-align: center;
+  margin-bottom: 150px;
+}
+
+#maincriavoto .caixa-info strong {
+  color: #002D62;
+}
+
+
+
+
+
+
+
+
+
+
+/* Container da tabela com largura máxima de 800px */
+.tabela-votacoes-container {
+    overflow-x: auto;
+    margin: 15px auto;
+    max-width: 800px; /* largura máxima */
+    text-align: center;
+}
+
+/* Tabela minimalista */
+.tabela-votacoes {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+}
+
+/* Cabeçalho */
+.tabela-votacoes thead th {
+    color: #002D62;
+    font-weight: 600;
+    text-align: center;
+    padding: 4px 8px; /* padding reduzido */
+}
+
+/* Corpo da tabela */
+.tabela-votacoes tbody td {
+    text-align: center;
+    color: #333;
+    padding: 4px 8px; /* linhas pequenas */
+}
+
+/* Descrição ocupa mais espaço */
+.tabela-votacoes tbody td:nth-child(2) {
+    text-align: left;
+    width: 45%;
+}
+
+/* Outras colunas automáticas */
+.tabela-votacoes tbody td:nth-child(1),
+.tabela-votacoes tbody td:nth-child(3),
+.tabela-votacoes tbody td:nth-child(4),
+.tabela-votacoes tbody td:nth-child(5) {
+    width: auto;
+    white-space: nowrap;
+}
+
+/* Linhas alternadas */
+.tabela-votacoes tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Botão Gerenciar maior */
+.btn-gerenciar-table {
+    display: inline-block;
+    padding: 6px 12px; /* aumento do padding */
+    font-size: 13px;   /* tamanho da fonte maior */
+    background-color: #005eff;
+    color: white;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: 0.15s;
+}
+
+.btn-gerenciar-table:hover {
+    background-color: #003bb5;
+}
+
+/* Espaço extra entre tabela e footer */
+.tabela-votacoes-container {
+    overflow-x: auto;
+    margin: 15px auto 180px auto; /* 180px de margem inferior */
+    max-width: 800px; /* largura máxima */
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* ------------------------ Main Criar Votações ------------------------  */
+
+#maincriavot .container {
+
+  margin: 30px auto;
+  padding: 0 20px;
+  text-align: center;
+  margin-bottom: 140px;
+}
+
 #maincriavot h2 {
   text-align: left;
   color: #002D62;
+  font-weight: 700;
   display: inline-block;
   padding-bottom: 5px;
   margin-bottom: 8px;
@@ -1800,22 +1907,6 @@ body {
   margin-top: -40px;
 }
 
-#maincriavot .caixa-info {
-  background-color: #eef3ff;
-  border: 1px solid #002D62;
-  padding: 30px;
-  border-radius: 5px;
-  margin: 20px auto;
-  max-width: 500px;
-  text-align: center;
-  margin-bottom: 150px;
-}
-
-#maincriavot .caixa-info strong {
-  color: #002D62;
-}
-
-
 #maincriavot .linha-completa {
   display: flex;
   align-items: center;
@@ -1832,13 +1923,152 @@ body {
 }
 
 #maincriavot .linha-grossa {
-  width: 150px;
+  width: 320px;
   height: 18px;
   background-color: #800000;
   border-radius: 10px;
-
 }
 
+
+#maincriavot .caixa-info {
+  background-color: #eef3ff;
+  border: 1px solid #002D62;
+  padding: 30px;
+  border-radius: 5px;
+  margin: 20px auto 150px auto;
+  max-width: 500px;
+  text-align: center;
+}
+
+#maincriavot .caixa-info strong {
+  color: #002D62;
+}
+
+
+#maincriavot .form-box {
+  border: 1px solid #002D62;
+  border-radius: 6px;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  box-shadow: 0px 3px 6px rgba(0,0,0,0.1);
+}
+
+
+#maincriavot .form-header {
+  background-color: #800000;
+  color: white;
+  font-weight: bold;
+  padding: 12px 0;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  letter-spacing: 0.5px;
+}
+
+
+#maincriavot .form-content {
+  padding: 25px 45px 30px 35px;
+  text-align: left;
+}
+
+#maincriavot .form-content p {
+  color: #002D62;
+  font-size: 14px;
+  line-height: 1.4;
+  margin-top: 0;
+  margin-bottom: 35px;
+  text-align: center;
+}
+
+#maincriavot label {
+  font-weight: bold;
+  color: #002D62;
+  font-size: 13px;
+  display: block;
+  margin-bottom: 4px;
+}
+
+#maincriavot select, #maincriavot input[type="date"], #maincriavot textarea {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 6px 8px;
+  font-size: 13.5px;
+  margin-bottom: 35px;
+  font-family: "Segoe UI", sans-serif;
+}
+
+
+
+#maincriavot .duas-colunas {
+  display: flex;
+  justify-content: space-between;
+  gap: 35px;
+}
+
+#maincriavot .tres-colunas {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+#maincriavot .tres-colunas .campos {
+  width: 180px;
+}
+
+#maincriavot .tres-colunas .campo {
+  width: 130px;
+}
+
+#maincriavot textarea {
+  resize: none;
+  height: 70px;
+}
+
+#maincriavot .btn-confirmar {
+  background-color: #013e83;
+  color: white;
+  font-weight: bold;
+  border: none;
+  padding: 10px 50px;
+  border-radius: 25px;
+  display: block;
+  margin: 20px auto 0;
+  cursor: pointer;
+  transition: 0.2s;
+  font-size: 14px;
+}
+
+#maincriavot .btn-confirmar:hover {
+  background-color: #001d3a;
+}
+
+#maincriavot #semestre{
+  width: 140px;
+} 
+
+#maincriavot #curso{
+  min-width: 363px;
+
+} 
+
+
+
+#maincriavot #inicio {
+  border: 2px solid #1b49ac;
+  background-color: #deeefd;
+  text-align: center;
+}
+
+#maincriavot #fim {
+  border: 2px solid #ac1b1b;
+  background-color: #fddede;
+  text-align: center;
+}
+
+#maincriavot input[type="date"] {
+  text-align: center; 
+}
 
 /* ------------------------ Main Criar Votações Personalizar ------------------------  */
 

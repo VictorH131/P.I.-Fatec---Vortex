@@ -22,19 +22,13 @@ CREATE TABLE votacao (
     id_votacao INT AUTO_INCREMENT PRIMARY KEY,
     data_inicio DATETIME NOT NULL,
     data_fim DATETIME NOT NULL,
+    data_inscricao DATETIME NOT NULL,
     semestre VARCHAR(10) NOT NULL,
     curso VARCHAR(100) NOT NULL,
+    descricao VARCHAR(255),
+    status VARCHAR(20) NOT NULL DEFAULT 'ativo',
     id_adm INT NOT NULL,
-    FOREIGN KEY (id_adm) REFERENCES adm(id_adm)
-);
-
-CREATE TABLE candidato (
-    id_cand INT AUTO_INCREMENT PRIMARY KEY,
-    id_aluno INT NOT NULL,
-    descricao TEXT,
-    email VARCHAR(100),
-    foto VARCHAR(255),
-    FOREIGN KEY (id_aluno) REFERENCES aluno(id_aluno)
+    FOREIGN KEY (id_adm) REFERENCES adm(id_adm)  
 );
 
 CREATE TABLE itens_votacao (
@@ -46,6 +40,17 @@ CREATE TABLE itens_votacao (
         ON UPDATE CASCADE,
     FOREIGN KEY (id_cand) REFERENCES candidato(id_cand)
 );
+
+
+CREATE TABLE candidato (
+    id_cand INT AUTO_INCREMENT PRIMARY KEY,
+    id_aluno INT NOT NULL,
+    descricao TEXT,
+    email VARCHAR(100),
+    foto VARCHAR(255),
+    FOREIGN KEY (id_aluno) REFERENCES aluno(id_aluno)
+);
+
 
 CREATE TABLE voto (
     id_voto INT AUTO_INCREMENT PRIMARY KEY,

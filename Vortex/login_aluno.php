@@ -2,9 +2,9 @@
   session_start();
 
   $class = '';
-
+  
   if(isset($_SESSION['logado']) && $_SESSION['logado'] === true){
-    if ($class == 'aluno') {
+    if ($_SESSION['usuario']['class'] == 'aluno') {
       header("Location: Sessao_aluno/home_aluno.php");
       exit;
     } 

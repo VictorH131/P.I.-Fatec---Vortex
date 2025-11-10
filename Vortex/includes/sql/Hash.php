@@ -7,7 +7,7 @@ session_start();
             if (isset($_POST['reset_aluno'])) {
                 $hash1 = password_hash('senha123', PASSWORD_DEFAULT);
                 $hash2 = password_hash('Catarino@123', PASSWORD_DEFAULT);
-                $hash3 = password_hash('feoli#0805', PASSWORD_DEFAULT);
+                $hash3 = password_hash('feoli0805', PASSWORD_DEFAULT);
                 $hash4 = password_hash('25862210', PASSWORD_DEFAULT);
 
                 $sql = "UPDATE aluno SET senha = :senha WHERE id_aluno = :id";
@@ -24,7 +24,7 @@ session_start();
             if (isset($_POST['reset_adm'])) {
                 $hash1 = password_hash('senha123', PASSWORD_DEFAULT);
                 $hash2 = password_hash('Catarino@123', PASSWORD_DEFAULT);
-                $hash3 = password_hash('feoli#0805', PASSWORD_DEFAULT);
+                $hash3 = password_hash('feoli0805', PASSWORD_DEFAULT);
                 $hash4 = password_hash('25862210', PASSWORD_DEFAULT);
 
                 $sql = "UPDATE adm SET senha = :senha WHERE id_adm = :id";
