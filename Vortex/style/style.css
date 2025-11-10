@@ -1710,20 +1710,6 @@ body {
 
 /* ------------------------ Main Votações ------------------------  */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #maincriavoto .container {
   max-width: 800px;
   margin: 30px auto;
@@ -1779,66 +1765,54 @@ body {
 
 
 
-
-
-
-
-/* Container da tabela com largura máxima de 800px */
-.tabela-votacoes-container {
+#maincriavoto .tabela-votacoes-container {
     overflow-x: auto;
     margin: 15px auto;
     max-width: 800px; /* largura máxima */
     text-align: center;
 }
 
-/* Tabela minimalista */
-.tabela-votacoes {
+#maincriavoto .tabela-votacoes {
     width: 100%;
     border-collapse: collapse;
     font-family: Arial, sans-serif;
     font-size: 12px;
 }
 
-/* Cabeçalho */
-.tabela-votacoes thead th {
+#maincriavoto .tabela-votacoes thead th {
     color: #002D62;
     font-weight: 600;
     text-align: center;
-    padding: 4px 8px; /* padding reduzido */
+    padding: 4px 8px;
 }
 
-/* Corpo da tabela */
-.tabela-votacoes tbody td {
+#maincriavoto .tabela-votacoes tbody td {
     text-align: center;
     color: #333;
-    padding: 4px 8px; /* linhas pequenas */
+    padding: 4px 8px; 
 }
 
-/* Descrição ocupa mais espaço */
-.tabela-votacoes tbody td:nth-child(2) {
+#maincriavoto .tabela-votacoes tbody td:nth-child(2) {
     text-align: left;
     width: 45%;
 }
 
-/* Outras colunas automáticas */
-.tabela-votacoes tbody td:nth-child(1),
-.tabela-votacoes tbody td:nth-child(3),
-.tabela-votacoes tbody td:nth-child(4),
-.tabela-votacoes tbody td:nth-child(5) {
+#maincriavoto .tabela-votacoes tbody td:nth-child(1),
+#maincriavoto .tabela-votacoes tbody td:nth-child(3),
+#maincriavoto .tabela-votacoes tbody td:nth-child(4),
+#maincriavoto .tabela-votacoes tbody td:nth-child(5) {
     width: auto;
     white-space: nowrap;
 }
 
-/* Linhas alternadas */
-.tabela-votacoes tbody tr:nth-child(even) {
+#maincriavoto .tabela-votacoes tbody tr:nth-child(even) {
     background-color: #f9f9f9;
 }
 
-/* Botão Gerenciar maior */
-.btn-gerenciar-table {
+#maincriavoto .btn-gerenciar-table {
     display: inline-block;
-    padding: 6px 12px; /* aumento do padding */
-    font-size: 13px;   /* tamanho da fonte maior */
+    padding: 6px 12px;
+    font-size: 13px;   
     background-color: #005eff;
     color: white;
     border-radius: 4px;
@@ -1846,28 +1820,16 @@ body {
     transition: 0.15s;
 }
 
-.btn-gerenciar-table:hover {
+#maincriavoto .btn-gerenciar-table:hover {
     background-color: #003bb5;
 }
 
-/* Espaço extra entre tabela e footer */
-.tabela-votacoes-container {
+#maincriavoto .tabela-votacoes-container {
     overflow-x: auto;
-    margin: 15px auto 180px auto; /* 180px de margem inferior */
-    max-width: 800px; /* largura máxima */
+    margin: 15px auto 180px auto; 
+    max-width: 800px; 
     text-align: center;
 }
-
-
-
-
-
-
-
-
-
-
-
 
 /* ------------------------ Main Criar Votações ------------------------  */
 
