@@ -1,13 +1,13 @@
 
-|                                                                                                        |
-|                              **Projeto Integrador – Fatec Itapira (2025)**                             |
-|                                                                                                        |
-|                                                                                                        |
-|   ## Tema Sistema de Votação Online.                                                                   |           
-|   ##                                                                                                   |                        
-|   ## Parceria entre os alunos e a Fatec, visando modernizar processos internos de votação acadêmica.   |
-|                                                                                                        |
-|--------------------------------------------------------------------------------------------------------|
+                                                                                                        
+                              **Projeto Integrador – Fatec Itapira (2025)**                             
+                                                                                                        
+                                                                                                        
+   ## Tema Sistema de Votação Online.                                                                            
+   ##                                                                                                                           
+   ## Parceria entre os alunos e a Fatec, visando modernizar processos internos de votação acadêmica.   
+                                                                                                        
+
 
 
 ---
