@@ -16,3 +16,9 @@ VALUES
 ('Matheus Reinhart Camargo Martins Catarino', '2781392513027', 'matheus.catarino@fatec.sp.gov.br', '$2y$10$9OQvDx8Rk3XcfwzCjq4l0.Ng8RcQHj0ufF3GJp5YKv9pZxLJkS7cy'),
 ('Feliphe Eduardo Silvério Gonçalves de Oliveira', '2781392513020', 'feliphe.oliveira@fatec.sp.gov.br', '$2y$10$9OQvDx8Rk3XcfwzCjq4l0.Ng8RcQHj0ufF3GJp5YKv9pZxLJkS7cy'),
 ('Marcos Vinícius Rocha', '2781392513032', 'marcos.rocha@fatec.sp.gov.br', '$2y$10$9OQvDx8Rk3XcfwzCjq4l0.Ng8RcQHj0ufF3GJp5YKv9pZxLJkS7cy');
+
+-- Valores votacao
+INSERT INTO votacao 
+(data_inicio, data_fim, data_inscricao, semestre, curso, descricao, status, id_adm)
+VALUES
+('2025-11-10 08:00:00', '2025-12-20 18:00:00', '2025-11-9 12:00:00', '1', 'DSM', 'Votação para escolha de representante de turma', 'ativo', 1);
