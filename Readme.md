@@ -1,4 +1,5 @@
-|--------------------------------------------------------------------------------------------------------|
+
+|                                                                                                        |
 |                              **Projeto Integrador – Fatec Itapira (2025)**                             |
 |                                                                                                        |
 |                                                                                                        |
@@ -34,13 +35,13 @@ Seu objetivo é permitir que alunos, docentes e gestão institucional possam par
 
 ##  Funcionalidades
 
--- Login seguro com controle de sessão (Aluno / Administrador).
--- Criação de votações com datas e restrições.
--- Inscrição e gerenciamento de candidatos.
--- Votação online (com restrição de 1 voto por eleitor).
--- Contagem automática e exibição dos resultados.
--- Página Sobre, Ajuda e Políticas do Sistema.
--- Geração de Ata e Documentação Completa.
+- Login seguro com controle de sessão (Aluno / Administrador).
+- Criação de votações com datas e restrições.
+- Inscrição e gerenciamento de candidatos.
+- Votação online (com restrição de 1 voto por eleitor).
+- Contagem automática e exibição dos resultados.
+- Página Sobre, Ajuda e Políticas do Sistema.
+- Geração de Ata e Documentação Completa.
 
 ---
 
@@ -68,9 +69,9 @@ Seu objetivo é permitir que alunos, docentes e gestão institucional possam par
 | **itens_votacao** | Relação entre voto e candidatos |
 
  **Integridade garantida** por:
--- Chaves primárias e estrangeiras.
--- Senhas criptografadas.
--- Restrição `UNIQUE` impedindo voto duplicado.
+- Chaves primárias e estrangeiras.
+- Senhas criptografadas.
+- Restrição `UNIQUE` impedindo voto duplicado.
 
 ---
 
