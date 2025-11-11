@@ -1,10 +1,10 @@
 
                                                                                                         
-**Projeto Integrador – Fatec Itapira (2025) - Vortex**                             
+# **Projeto Integrador – Fatec Itapira (2025) - Vortex**                             
                                                                                                         
                                                                                                         
 ## Tema Sistema de Votação Online.                                                                                                                            
-Parceria entre os alunos e a Fatec, visando modernizar processos internos de votação acadêmica.   
+ > Parceria entre os alunos e a Fatec, visando modernizar processos internos de votação acadêmica.   
                                                                                                         
 
 
@@ -76,6 +76,4 @@ Seu objetivo é permitir que alunos, docentes e gestão institucional possam par
 
 ##  Capturas de Tela
 
-
-[Imagems do sistema]
 
