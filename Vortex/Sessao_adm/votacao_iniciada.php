@@ -1,0 +1,114 @@
+<?php 
+    require_once '../includes/dbconnect.php'; // conexão com o banco
+    include '../includes/session.php'; // verifica se está logado
+    include '../includes/header_adm.php'; // header     
+?>
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Votações - Vortex</title>
+    <link rel="stylesheet" href="style/style.css"> <!--estilo(Css) do site-->
+    <link rel="icon" href="img/icones/favicon.ico"> <!--Icone do Site-->
+</head>
+
+<body>
+    <!--header-->
+    <header id="headerII">
+        <div class="top-bar">
+            <img src="img/logo_fatec.png" alt="Fatec" id="logo_fatec">
+            <img src="img/logo_cps.png" alt="Centro Paula Souza" id="logo_cps">
+        </div>
+
+    </header>
+
+    <!-- nav -->
+    <nav class="navbar">
+        <a href="home_adm.html" id="home">Home</a>
+        <a href="votar_adm.html">Votação</a>
+        <a href="sobre_adm.html">Sobre</a>
+        <a href="ajuda_adm.html">Ajuda</a>
+        <a href="index.html">Sair</a>
+    </nav>
+    <hr id="hrhead1">
+
+
+    
+    <main id="mainvotadm">
+        <div id="centro">
+            <h2>Votações Abertas</h2>
+
+            <div class="linha-completa">
+                <div class="linha-grossa"></div>
+                <div class="linha-fina"></div>
+            </div>
+        </div>
+
+        <div class="info-votacao">
+            <h3>DSM - 1° Semestre</h3>
+            <a href="final_adm.html" class="btn-encerrar">Encerrar Votação</a>
+        </div>
+
+        <div class="votacao-completo">
+            <button id="seta-esquerda" aria-label="Voltar">←</button>
+            <div class="votacoes-container" id="votacoes"></div>
+            <button id="seta-direita" aria-label="Avançar">→</button>
+        </div>
+
+    </main>
+
+    <!--Footer-->
+    <hr id="hrfoot1">
+    <footer id="footerII">
+        <div class="footer-container">
+            <div id="logoVor">
+                <img src="img/LOGO_VORTEX.png" class="logo-vortex" alt="Logo Vortex">
+            </div>
+
+
+            <div class="texto-sistema">
+                <div id="colunaas">
+                    <div>
+                        <h2>Uma parceria Vortex e Fatec</h2>
+                        <p>Fornecendo um futuro melhor na educação.</p>
+                    </div>
+                </div>
+
+                <div class="Telefonee"></div>
+
+                <div id="colunaas">
+                    <div>
+                        <h2>Telefone:</h2>
+                        <p><img src="img/icones/phone.svg">(19) 3843-1996 </p>
+                        <p><img src="img/icones/whats.svg">(19) 3863-5210</p>
+                    </div>
+                </div>
+
+                <div class="Telefonee"></div>
+                <br>
+                <div id="colunaas">
+                    <div>
+                        <h2>Fatec Ogari de Castro Pacheco</h2>
+                        <p>Rua Tereza Lera Paoletti, 570/590 - Jardim Bela Vista<br>
+                            CEP: 13974-080 </p>
+                    </div>
+                </div>
+            </div>
+            <div class="direita">
+                <img src="img/logo_cps_branca.png" alt="Logo CPS">
+            </div>
+        </div>
+
+        <div class="politica">
+            <a href="politicas_adm.html">Políticas e Privacidade</a>
+            <p>© 2002 - Centro Paula Souza - Desenvolvido por Vortex Inc - Todos os direitos reservados.</p>
+        </div>
+    </footer>
+    <script src="js/votar_aberta.js"></script>
+</body>
+
+</html>
