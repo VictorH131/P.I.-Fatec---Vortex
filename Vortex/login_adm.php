@@ -58,7 +58,7 @@
 
         <div id="linha">
           <label for="usuario">USUÁRIO</label>
-          <input type="text" id="usuario" name="email" placeholder="Nº da Matrícula" required autofocus>
+          <input type="text" id="usuario" name="email" placeholder="E-mail Instucional" required autofocus>
         </div>
 
         <div id="linha">

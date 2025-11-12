@@ -1,8 +1,10 @@
 <?php
   include '../includes/session.php'; // Verifica se esta logado
   include '../includes/header_aluno.php'; // header 
-  echo '<title>Boas Vindas - Vortex</title>'; // titulo da pagina
+  echo '<title>Área de Votação - Vortex</title>'; // titulo da pagina
   
+
+
   $data = "a";
 ?>
     <!--Main index-->
