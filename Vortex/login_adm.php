@@ -53,6 +53,12 @@
       <h2>LOGIN</h2>
       <h3>COORDENAÇÃO</h3>
 
+      <?php if (!empty($aviso)): ?>
+        <p style="color: <?= str_contains($aviso, 'sucesso') ? 'green' : 'red' ?>; text-align: center;">
+          <?= htmlspecialchars($aviso); ?>
+        </p>
+      <?php endif; ?>
+
       <form action="includes/processa_login.php" method="post">
         <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
 

@@ -21,4 +21,6 @@ VALUES
 INSERT INTO votacao 
 (data_inicio, data_fim, data_inscricao, semestre, curso, descricao, status, id_adm)
 VALUES
+('2025-12-12 08:00:00', '2025-12-20 18:00:00', '2025-12-11 12:00:00', '2', 'DSM', 'Votação para escolha de representante de turma', 'ativo', 2),
 ('2025-11-10 08:00:00', '2025-12-20 18:00:00', '2025-11-9 12:00:00', '1', 'DSM', 'Votação para escolha de representante de turma', 'ativo', 1);
+
