@@ -26,7 +26,7 @@
           <div class="texto-voto">
             <h3>Vote Já para os Representantes de DSM</h3>
             <p>Os alunos de Desenvolvimento de Software Multiplataforma, estão decidindo seus representantes. Clique e veja mais.</p>
-            <a href="candidatarse.php" class="botao-leia">Leia +</a>
+            <a href="votacao.php" class="botao-leia">Leia +</a>
           </div>
         </div>
       </section>  

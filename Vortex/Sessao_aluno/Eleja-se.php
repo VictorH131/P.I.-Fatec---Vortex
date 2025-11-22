@@ -1,135 +1,97 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eleja-se - Vortex</title>
-    <link rel="stylesheet" href="style/style.css">  <!--estilo(Css) do site-->
-    <link rel="icon" href="img/icones/favicon.ico"> <!--Icone do Site-->
-  </head>
- 
-  <body>
-    <!--header-->
-    <header id="headerII">
-      <div class="top-bar">
-        <img src="img/logo_fatec.png" alt="Fatec" id="logo_fatec">
-        <img src="img/logo_cps.png" alt="Centro Paula Souza" id="logo_cps">
-      </div>
-      
-    </header>
+<?php
+include '../includes/session.php'; // Verifica se está logado
+include '../includes/header_aluno.php';
+require_once '../includes/dbconnect.php';
 
-    <!-- nav -->
-    <nav class="navbar">
-      <a href="home_aluno.html" id="home">Home</a>
-      <a href="votar_aluno.html">Votação</a>
-      <a href="sobre_aluno.html">Sobre</a>
-      <a href="ajuda_aluno.html">Ajuda</a>
-      <a href="index.html">Sair</a>
-    </nav>
-    <hr id="hrhead1">
+echo '<title>Eleja-se - Vortex</title>';
 
-    <!--Main index-->
-    <main id="mainelenao">
-      <h2>Cadastro de Candidato</h2>
-      <div class="form-container">
-        <div class="foto-usuario">
-          <div class="foto-container">
-            <label for="fileInput" class="foto-label">
-              <!-- Foto de perfil -->
-              <img id="preview" src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Foto do usuário">
-              <img src="img/icones/eleja.svg" alt="Adicionar" class="icone-upload">
-            </label>
-            <input type="file" id="fileInput" accept="image/*">
+$required_fields = ['nome', 'email', 'matricula', 'curso', 'semestre'];
+
+foreach ($required_fields as $field) {
+    if (!isset($_SESSION['usuario'][$field]) || empty($_SESSION['usuario'][$field])) {
+        header("Location: ../Sessao_aluno/home_aluno.php"); 
+        exit;
+    }
+}
+
+$nome = $_SESSION['usuario']['nome'];
+$matricula = $_SESSION['usuario']['matricula'];
+$email = $_SESSION['usuario']['email'];
+$curso = $_SESSION['usuario']['curso'];
+$semestre = $_SESSION['usuario']['semestre'];
+
+if ($curso == "DSM") {
+    $curso = "Desenvolvimento de Sistemas Multiplataforma";
+} elseif ($curso == "GI") {
+    $curso = "Gestão Industrial";
+}elseif ($curso == "GE") {
+    $curso = "Gestão Empresarial";
+}
+
+
+?>
+    
+<main id="mainelenao">
+    <h2>Cadastro de Candidato</h2>
+    <div class="form-container">
+      <form method="POST" action="../includes/processa_candidato.php"  enctype="multipart/form-data">
+          <div class="foto-usuario">
+              <div class="foto-container">
+                  <label for="fileInput" class="foto-label">
+                      <img id="preview" src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Foto do usuário">
+                      <img src="../img/icones/eleja.svg" alt="Adicionar" class="icone-upload">
+                  </label>
+                  <input type="file" id="fileInput"  name="foto" accept="image/*"  >
+              </div>
           </div>
-        </div>
-        <form>
+
+        
           <div id="linha">
-            <label for="nome">Nome:</label>
-            <input type="text" id="nome" placeholder=" Seu Nome" name="nome"  required autofocus>
+              <label for="nome">Nome:</label>
+              <input type="text" id="nome" name="nome" value="<?= htmlspecialchars($nome) ?>" placeholder="Seu Nome" >
           </div>
-          
+
           <div id="linha">
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" placeholder=" Seu Email" required >
+              <label for="email">Email:</label>
+              <input type="email" id="email" name="email" value="<?= htmlspecialchars($email) ?>" placeholder="Seu E-mail" >
           </div>
 
           <div class="row">
-            <div id="linha">
-              <label for="matricula">Matrícula:</label>
-              <input type="text" id="matricula" name="matricula" value=" 53903093831"  disabled>
-            </div>
-            <div id="linha">
-              <label for="semestre">Semestre:</label>
-              <input type="text" id="semestre" name="semestre" value=" 1° Semestre" disabled>
-            </div>
+              <div id="linha">
+                  <label for="matricula">Matrícula:</label>
+                  <input type="text" id="matricula" name="matricula"
+                          value="<?= htmlspecialchars($matricula) ?>"
+                          readonly>
+              </div>
+
+              <div id="linha">
+                  <label for="semestre">Semestre:</label>
+                  <input type="text" id="semestre" name="semestre"
+                          value="<?= htmlspecialchars($semestre) ?>º Semestre"
+                          readonly>
+              </div>
           </div>
 
           <div id="linha">
-            <label for="curso">Curso:</label>
-            <input type="text" id="curso" name="curso"  value=" Desenvolvimento De Sistemas Multiplataforma" disabled>
+              <label for="curso">Curso:</label>
+              <input type="text" id="curso" name="curso"
+                      value="<?= htmlspecialchars($curso) ?>"
+                      readonly>
           </div>
+
           <div id="linha">
-            <label for="descricao">Descrição:</label>
-            <textarea id="descricao" name="descricao" rows="3" placeholder="Fale um pouco sobre você"></textarea>
-          </div>
-          <button id="btnCadastrar" class="btn-submit"type="button">Cadastrar-se</button>
-          
-        </form>
-      </div>
-    </main>
-
-    <!--Footer-->
-    <hr id="hrfoot1">
-    <footer id="footerII">
-      <div class="footer-container">
-        <div id="logoVor">
-            <img src="img/LOGO_VORTEX.png" class="logo-vortex" alt="Logo Vortex">
-        </div>
-        
-        
-        <div class="texto-sistema">
-          <div id="colunaas">
-            <div>
-              <h2>Uma parceria Vortex e Fatec</h2>
-              <p>Fornecendo um futuro melhor na educação.</p>
-            </div>
+              <label for="descricao">Descrição:</label>
+              <textarea id="descricao" name="descricao" rows="3" placeholder="Fale um pouco sobre você"></textarea>
           </div>
 
-          <div class="Telefonee"></div>
-          
-          <div id="colunaas">
-            <div >
-              <h2>Telefone:</h2> 
-              <p><img src="img/icones/phone.svg" >(19) 3843-1996 </p>
-              <p><img src="img/icones/whats.svg">(19) 3863-5210</p>
-            </div>
-          </div>
+          <button id="btnCadastrar" class="btn-submit" type="submit">Cadastrar-se</button>
+      </form>
 
-          <div class="Telefonee"></div>
-          <br>
-          <div id="colunaas">
-            <div>
-              <h2>Fatec Ogari de Castro Pacheco</h2>
-              <p>Rua Tereza Lera Paoletti, 570/590 - Jardim Bela Vista<br>
-                  CEP: 13974-080 </p>
-            </div>
-          </div>
-        </div>
-        
+    </div>
+</main>
 
-        <div class="direita">
-          <img src="img/logo_cps_branca.png" alt="Logo CPS">
-        </div>
-      </div>
+<script src="../js/eleja.js"></script>
 
-      <div class="politica">
-        <a href="Politicas_alunos.html">Políticas e Privacidade</a>
-        <p>© 2002 - Centro Paula Souza - Desenvolvido por Vortex Inc - Todos os direitos reservados.</p>
-      </div>
-    </footer>
-    <script src="js/eleja.js"></script>
-  </body>
-</html>
-    
-
-
+<?php
+include '../includes/footer.php';
+?>
