@@ -63,12 +63,12 @@
         <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
 
         <div id="linha">
-          <label for="usuario">USUÁRIO</label>
+          <label for="usuario">USUÁRIO:</label>
           <input type="text" id="usuario" name="email" placeholder="E-mail Instucional" required autofocus>
         </div>
 
         <div id="linha">
-          <label for="senha">SENHA</label>
+          <label for="senha">SENHA:</label>
           <input type="password" id="senha" name="senha" placeholder="Sua Senha" required>
         </div>
 

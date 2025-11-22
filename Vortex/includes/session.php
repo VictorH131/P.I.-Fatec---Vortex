@@ -54,12 +54,13 @@
         ];
     }
 
-    $dados = calcularDadosAluno($matricula);
+    if ($class == 'aluno') {
+        $dados = calcularDadosAluno($matricula);
 
-    $_SESSION['usuario']['semestre'] = $dados['semestre'];
-    $_SESSION['usuario']['curso'] = $dados['curso'];
+        $_SESSION['usuario']['semestre'] = $dados['semestre'];
+        $_SESSION['usuario']['curso'] = $dados['curso'];
 
-    
+    }            
 
 
 
