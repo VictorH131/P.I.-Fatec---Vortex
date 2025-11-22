@@ -40,7 +40,7 @@ $id_aluno = $aluno['id_aluno'];
 $foto_caminho = null;
 
 if (isset($_FILES['foto']) && $_FILES['foto']['error'] === 0) {
-    $pasta = "../uploads/fotos/";
+    $pasta = "../img/uploads/fotos/";
     if (!is_dir($pasta)) mkdir($pasta, 0777, true);
 
     $nome_arquivo = uniqid() . "_" . basename($_FILES['foto']['name']);
