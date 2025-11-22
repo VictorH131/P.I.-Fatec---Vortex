@@ -47,7 +47,7 @@ if (isset($_FILES['foto']) && $_FILES['foto']['error'] === 0) {
     $destino = $pasta . $nome_arquivo;
 
     if (move_uploaded_file($_FILES['foto']['tmp_name'], $destino)) {
-        $foto_caminho = "uploads/fotos/" . $nome_arquivo;
+        $foto_caminho = "img/uploads/fotos/" . $nome_arquivo;
     }
 }
 
@@ -66,7 +66,7 @@ $sql = "SELECT id_votacao
         FROM votacao 
         WHERE curso = ? 
           AND semestre = ? 
-          AND status = 'ativo'
+          AND status = 'ativo'         
         LIMIT 1";
 
 $stmt = $conn->prepare($sql);
