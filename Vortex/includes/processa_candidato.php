@@ -2,26 +2,22 @@
 session_start();
 require_once 'dbconnect.php'; 
 
-
 // VERIFICA MÉTODO
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     echo "Acesso inválido.";
     exit;
 }
 
-
 // DADOS DA SESSÃO
-$nomeUsuario = $_SESSION['usuario']['nome'];
-$class = $_SESSION['usuario']['class'];
-$matricula = $_SESSION['usuario']['matricula'];
-$curso = $_SESSION['usuario']['curso'];
-$semestre = $_SESSION['usuario']['semestre'];
-
+$nomeUsuario = $_SESSION['usuario']['nome'] ?? '';
+$class = $_SESSION['usuario']['class'] ?? '';
+$matricula = $_SESSION['usuario']['matricula'] ?? '';
+$curso = $_SESSION['usuario']['curso'] ?? '';
+$semestre = $_SESSION['usuario']['semestre'] ?? '';
 
 // CAMPOS DO FORMULÁRIO
 $descricao = $_POST['descricao'] ?? '';
 $email = $_POST['email'] ?? '';
-
 
 // BUSCAR id_aluno NO BANCO
 $stmt = $conn->prepare("SELECT id_aluno FROM aluno WHERE matricula = ?");
@@ -35,7 +31,6 @@ if (!$aluno) {
 
 $id_aluno = $aluno['id_aluno'];
 
-
 // UPLOAD DA FOTO
 $foto_caminho = null;
 
@@ -43,14 +38,14 @@ if (isset($_FILES['foto']) && $_FILES['foto']['error'] === 0) {
     $pasta = "../img/uploads/fotos/";
     if (!is_dir($pasta)) mkdir($pasta, 0777, true);
 
-    $nome_arquivo = uniqid() . "_" . basename($_FILES['foto']['name']);
+    // Limpa caracteres estranhos e adiciona ID único
+    $nome_arquivo = uniqid() . "_" . preg_replace("/[^a-zA-Z0-9\._-]/", "", basename($_FILES['foto']['name']));
     $destino = $pasta . $nome_arquivo;
 
     if (move_uploaded_file($_FILES['foto']['tmp_name'], $destino)) {
-        $foto_caminho = "img/uploads/fotos/" . $nome_arquivo;
+        $foto_caminho = "img/uploads/fotos/" . $nome_arquivo; // caminho relativo usado no site
     }
 }
-
 
 // INSERIR CANDIDATO NO BANCO
 $sql = "INSERT INTO candidato (id_aluno, descricao, email, foto) VALUES (?, ?, ?, ?)";
@@ -59,32 +54,34 @@ $stmt->execute([$id_aluno, $descricao, $email, $foto_caminho]);
 
 $id_cand = $conn->lastInsertId(); // pega o id do candidato recém-criado
 
-
-
 // BUSCAR A VOTAÇÃO CORRESPONDENTE
 $sql = "SELECT id_votacao 
         FROM votacao 
         WHERE curso = ? 
           AND semestre = ? 
-          AND status = 'ativo'         
+          AND status = 'ativo'
         LIMIT 1";
 
 $stmt = $conn->prepare($sql);
-$stmt->execute([$curso, $semestre]); // curso e semestre da sessão
+$stmt->execute([$curso, $semestre]);
 $votacao = $stmt->fetch(PDO::FETCH_ASSOC);
 
 if ($votacao) {
     $id_votacao = $votacao['id_votacao'];
 
-    // INSERIR AUTOMATICAMENTE NA TABELA itens_votacao
-    $sql2 = "INSERT INTO itens_votacao (id_votacao, id_cand) VALUES (?, ?)";
-    $stmt2 = $conn->prepare($sql2);
-    $stmt2->execute([$id_votacao, $id_cand]);
+    // VERIFICA SE JÁ EXISTE NA TABELA itens_votacao
+    $check = $conn->prepare("SELECT * FROM itens_votacao WHERE id_votacao = ? AND id_cand = ?");
+    $check->execute([$id_votacao, $id_cand]);
+
+    if ($check->rowCount() === 0) {
+        // INSERE SOMENTE SE NÃO EXISTIR
+        $sql2 = "INSERT INTO itens_votacao (id_votacao, id_cand) VALUES (?, ?)";
+        $stmt2 = $conn->prepare($sql2);
+        $stmt2->execute([$id_votacao, $id_cand]);
+    }
 }
 
-
-
+// REDIRECIONA PARA A PÁGINA DO ALUNO
 header("Location: ../Sessao_aluno/home_aluno.php");
 exit;
-
 ?>

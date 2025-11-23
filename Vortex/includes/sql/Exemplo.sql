@@ -28,10 +28,10 @@ VALUES
 --  candidatos de exemplo
 INSERT INTO candidato (id_aluno, descricao, email, foto)
 VALUES
-(1, 'Aluno ativo na turma, candidato a representante', 'victor.almeida28@fatec.sp.gov.br', 'img/candidato2.png'),
-(2, 'Aluno engajado, deseja representar a turma', 'matheus.catarino@fatec.sp.gov.br', 'img/candidato1.png'),
-(3, 'Aluno participativo, candidato a representante', 'feliphe.oliveira@fatec.sp.gov.br', 'img/candidato6.png'),
-(4, 'Aluno exemplar, candidato a representante', 'marcos.rocha@fatec.sp.gov.br', 'img/candidato3.png');
+(1, 'Aluno ativo na turma, candidato a representante', 'victor.almeida28@fatec.sp.gov.br', 'img/uploads/fotos/candidato2.png'),
+(2, 'Aluno engajado, deseja representar a turma', 'matheus.catarino@fatec.sp.gov.br', 'img/uploads/fotos/candidato1.png'),
+(3, 'Aluno participativo, candidato a representante', 'feliphe.oliveira@fatec.sp.gov.br', 'img/uploads/fotos/candidato6.png'),
+(4, 'Aluno exemplar, candidato a representante', 'marcos.rocha@fatec.sp.gov.br', 'img/uploads/fotos/candidato3.png');
 
 
 -- candidatos nas votações 
