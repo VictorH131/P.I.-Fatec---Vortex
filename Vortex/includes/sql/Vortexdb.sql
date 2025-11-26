@@ -59,10 +59,10 @@ CREATE TABLE voto (
     id_voto INT AUTO_INCREMENT PRIMARY KEY,
     id_aluno INT NOT NULL,
     id_votacao INT NOT NULL,
-    id_cand INT NOT NULL,
+    id_cand INT NULL,
     data_voto DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (id_aluno) REFERENCES aluno(id_aluno),
     FOREIGN KEY (id_votacao) REFERENCES votacao(id_votacao),
-    FOREIGN KEY (id_cand) REFERENCES candidato(id_cand),
+    FOREIGN KEY (id_cand) REFERENCES candidato(id_cand) ON DELETE SET NULL,
     UNIQUE (id_aluno, id_votacao)
 );

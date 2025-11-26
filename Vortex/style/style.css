@@ -1507,6 +1507,40 @@ body {
 }
 
 
+.voto-branco-btn {
+    display: block;
+    margin: -40px auto 80px auto; /* 25px em cima, 60px embaixo */
+    background: #064481; 
+    color: #fff;
+    padding: 14px 26px;
+    font-size: 18px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.35);
+    transition: 0.2s ease;
+}
+
+.voto-branco-btn:hover {
+    background: rgb(15, 75, 134); 
+    transform: scale(1.05);
+}
+
+.voto-branco-btn:disabled {
+    background: #19A819;
+    cursor: default;
+    transform: none;
+    opacity: 0.9;
+}
+
+.icone-voto {
+  width: 24px;
+  height: 24px;
+}
+
+
+
+
 /* ------------------------ Main Votar (final) ------------------------  */
 
 
