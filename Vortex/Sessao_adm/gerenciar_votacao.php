@@ -8,29 +8,32 @@ if (!isset($_GET['id']) || empty($_GET['id'])) {
     exit();
 }
 
-
 $id_votacao = $_GET['id'];
 
-try {
-    $sql = "SELECT id_votacao, descricao, data_inicio, data_fim, semestre, curso, status, data_inscricao 
-            FROM votacao 
-            WHERE id_votacao = :id";
-    $stmt = $conn->prepare($sql);
-    $stmt->execute([':id' => $id_votacao]);
-    $votacao = $stmt->fetch(PDO::FETCH_ASSOC);
+$sql = "SELECT id_votacao, descricao, data_inicio, data_fim, semestre, curso, status, data_inscricao 
+        FROM votacao 
+        WHERE id_votacao = :id";
+$stmt = $conn->prepare($sql);
+$stmt->execute([':id' => $id_votacao]);
+$votacao = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    if (!$votacao) {
-        die("Votação não encontrada!");
-    }
-
-} catch (PDOException $e) {
-    die("Erro ao buscar votação: " . $e->getMessage());
+if (!$votacao) {
+    die("Votação não encontrada!");
 }
 
-// Datas em timestamp para comparação
 $agora = time();
 $inicio = strtotime($votacao['data_inicio']);
 $fim = strtotime($votacao['data_fim']);
+
+$sqlC = "SELECT c.id_cand AS id_candidato, a.nome, c.foto
+         FROM itens_votacao iv
+         JOIN candidato c ON iv.id_cand = c.id_cand
+         JOIN aluno a ON c.id_aluno = a.id_aluno
+         WHERE iv.id_votacao = :id";
+
+$stmtC = $conn->prepare($sqlC);
+$stmtC->execute([':id' => $id_votacao]);
+$candidatos = $stmtC->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 
@@ -39,6 +42,7 @@ $fim = strtotime($votacao['data_fim']);
 <main id="maingerenciarvoto">
     <div class="container">
         <h2>Gerenciar Votação</h2>
+
         <div class="linha-completa">
             <div class="linha-fina"></div>
             <div class="linha-grossa"></div>
@@ -64,39 +68,31 @@ $fim = strtotime($votacao['data_fim']);
             </a>
 
             <?php
-            // Lógica do botão dinamicamente:
-
-            // 1. Se ainda não chegou o dia de início → nenhum botão (aguardando)
             if ($agora < $inicio) {
                 echo '<span class="btn-gerenciar" style="opacity:0.6;cursor:default;">Aguardando Período</span>';
-
-            // 2. Se já passou do fim → Finalizada
             } elseif ($agora > $fim) {
                 echo '<span class="btn-gerenciar" style="opacity:0.6;cursor:default;">Finalizada</span>';
-
             } else {
-                // Estamos dentro do período da votação (entre início e fim)
-                
+
                 if ($votacao['status'] === 'pendente') {
-                    // 3.1 Mostrar INICIAR
                     ?>
                     <form action="iniciar_votacao.php" method="POST" style="display:inline;">
                         <input type="hidden" name="id_votacao" value="<?= $votacao['id_votacao'] ?>">
-                        <button type="submit" class="btn-gerenciar">Iniciar Votação</button>
+                        <button type="submit" class="btn-gerenciar">Ativar</button>
                     </form>
                     <?php
+                }
 
-                } elseif ($votacao['status'] === 'ativo') {
-                    // 3.2 Mostrar ENCERRAR
+                elseif ($votacao['status'] === 'ativo') {
                     ?>
                     <form action="encerrar_votacao.php" method="POST" style="display:inline;">
                         <input type="hidden" name="id_votacao" value="<?= $votacao['id_votacao'] ?>">
-                        <button type="submit" class="btn-gerenciar">Encerrar Votação</button>
+                        <button type="submit" class="btn-gerenciar">Encerrar</button>
                     </form>
                     <?php
+                }
 
-                } else {
-                    // 3.3 Se finalizada no banco mas dentro do período (raro, mas previsto)
+                else {
                     echo '<span class="btn-gerenciar" style="opacity:0.6;cursor:default;">Finalizada</span>';
                 }
             }
@@ -107,6 +103,43 @@ $fim = strtotime($votacao['data_fim']);
             </a>
 
         </div>
+
+        <h3 style="margin-top:40px;">Candidatos</h3>
+
+       <?php if (count($candidatos) === 0): ?>
+
+            <div style="margin-top:30px; text-align:center;">
+                <img src="https://img.icons8.com/ios-filled/100/000000/conference-call.png"
+                    alt="Ícone de grupo"
+                    style="opacity:0.7;">
+
+                <p style="margin-top:15px;font-size:18px;color:#555;">
+                    Nenhum candidato inscrito nesta votação.
+                </p>
+            </div>
+
+        <?php else: ?>
+
+            <div class="lista-candidatos">
+                <?php foreach ($candidatos as $c): ?>
+
+                    <?php
+                    // Usa o caminho do banco, ou uma imagem padrão se estiver vazio
+                    $foto = (!empty($c['foto']) && file_exists("../" . $c['foto']))
+                        ? "../" . $c['foto']
+                        : "../img/default_user.png";
+                    ?>
+
+                    <div class="card-candidato">
+                        <img src="<?= $foto ?>" class="foto-cand">
+                        <p><?= htmlspecialchars($c['nome']) ?></p>
+                    </div>
+
+                <?php endforeach; ?>
+            </div>
+
+        <?php endif; ?>
+
     </div>
 </main>
 
