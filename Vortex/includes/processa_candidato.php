@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     echo "Acesso inválido.";
     exit;
 }
-
+ 
 // DADOS DA SESSÃO
 $nomeUsuario = $_SESSION['usuario']['nome'] ?? '';
 $class = $_SESSION['usuario']['class'] ?? '';
@@ -39,8 +39,8 @@ $checkAluno = $conn->prepare("SELECT id_cand FROM candidato WHERE id_aluno = ?")
 $checkAluno->execute([$id_aluno]);
 
 if ($checkAluno->rowCount() > 0) {
-    // JÁ ESTÁ CADASTRADO COMO CANDIDATO → NÃO FAZ NADA
-    header("Location: ../Sessao_aluno/home_aluno.php");
+    // Redireciona com erro
+    header("Location: ../Sessao_aluno/eleja-se.php?erro=jacadastrado");
     exit;
 }
 
@@ -54,7 +54,6 @@ if (isset($_FILES['foto']) && $_FILES['foto']['error'] === 0) {
     $pasta = "../img/uploads/fotos/";
     if (!is_dir($pasta)) mkdir($pasta, 0777, true);
 
-    // Limpa caracteres estranhos e adiciona ID único
     $nome_arquivo = uniqid() . "_" . preg_replace("/[^a-zA-Z0-9\._-]/", "", basename($_FILES['foto']['name']));
     $destino = $pasta . $nome_arquivo;
 
@@ -72,7 +71,7 @@ $sql = "INSERT INTO candidato (id_aluno, descricao, email, foto)
 $stmt = $conn->prepare($sql);
 $stmt->execute([$id_aluno, $descricao, $email, $foto_caminho]);
 
-$id_cand = $conn->lastInsertId(); // pega o id do candidato recém-criado
+$id_cand = $conn->lastInsertId();
 
 
 // ===============================
@@ -91,12 +90,11 @@ $votacao = $stmt->fetch(PDO::FETCH_ASSOC);
 
 
 // ===============================
-// INSERIR EM itens_votacao SE NÃO EXISTIR
+// INSERIR EM itens_votacao
 // ===============================
 if ($votacao) {
     $id_votacao = $votacao['id_votacao'];
 
-    // VERIFICA SE JÁ EXISTE NA TABELA itens_votacao
     $check = $conn->prepare("
         SELECT * FROM itens_votacao 
         WHERE id_votacao = ? AND id_cand = ?
@@ -111,7 +109,9 @@ if ($votacao) {
 }
 
 
-// REDIRECIONA PARA A PÁGINA DO ALUNO
-header("Location: ../Sessao_aluno/home_aluno.php");
+
+// REDIRECIONA APÓS SUCESSO
+header("Location: ../Sessao_aluno/eleja-se.php?status=ok");
 exit;
+
 ?>

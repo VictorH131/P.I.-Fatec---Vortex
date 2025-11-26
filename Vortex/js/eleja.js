@@ -13,9 +13,8 @@ const popupCadastrado = `
 `;
 document.body.insertAdjacentHTML("beforeend", popupCadastrado);
 
-
 // ================================
-// POPUP - ERRO
+// POPUP - ERRO GENÉRICO
 // ================================
 const popupErro = `
     <div id="popupErro" class="popup-overlay" style="display: none;">
@@ -28,12 +27,27 @@ const popupErro = `
 `;
 document.body.insertAdjacentHTML("beforeend", popupErro);
 
+// ================================
+// POPUP - ERRO JÁ CADASTRADO
+// ================================
+const popupJaCadastrado = `
+    <div id="popupJaCadastrado" class="popup-overlay" style="display: none;">
+      <div class="popup-box">
+        <h2>Você já é candidato!</h2>
+        <p>Parece que você já realizou seu cadastro como candidato.</p>
+        <p><small>Não é possível cadastrar novamente.</small></p>
+        <button id="fecharPopupJaCadastrado">OK</button>
+      </div>
+    </div>
+`;
+document.body.insertAdjacentHTML("beforeend", popupJaCadastrado);
 
 // ================================
 // LÓGICA PRINCIPAL
 // ================================
 document.addEventListener("DOMContentLoaded", () => {
 
+  // Elementos dos popups
   const popupSucesso = document.getElementById("popupCadastrado");
   const fecharSucesso = document.getElementById("fecharPopupCadastrado");
 
@@ -41,22 +55,49 @@ document.addEventListener("DOMContentLoaded", () => {
   const fecharErro = document.getElementById("fecharPopupErro");
   const textoErro = document.getElementById("mensagemErro");
 
-  const btnCadastrar = document.getElementById("btnCadastrar");
+  const popupJaCad = document.getElementById("popupJaCadastrado");
+  const fecharJaCad = document.getElementById("fecharPopupJaCadastrado");
 
-  // Seleciona o form
+  // ================================
+  // DETECTA ERRO OU SUCESSO NA URL
+  // ================================
+  const urlParams = new URLSearchParams(window.location.search);
+
+  // Já é candidato
+  if (urlParams.get('erro') === 'jacadastrado') {
+      popupJaCad.style.display = "flex";
+  }
+
+  // Cadastrado com sucesso
+  if (urlParams.get('status') === 'ok') {
+      popupSucesso.style.display = "flex";
+  }
+
+  // Botão para fechar popup "Já cadastrado"
+  fecharJaCad.addEventListener("click", () => {
+      popupJaCad.style.display = "none";
+      window.location.href = "../Sessao_aluno/home_aluno.php";
+  });
+
+  window.addEventListener("click", (e) => {
+    if (e.target === popupJaCad) {
+      popupJaCad.style.display = "none";
+      window.location.href = "../Sessao_aluno/home_aluno.php";
+    }
+  });
+
+  // ================================
+  // FORMULÁRIO
+  // ================================
   const form = document.querySelector("form");
+  const btnCadastrar = document.getElementById("btnCadastrar");
 
   btnCadastrar.addEventListener("click", (e) => {
     e.preventDefault();
 
-    // CAMPOS
     const nome = document.getElementById("nome");
     const email = document.getElementById("email");
-    const descricao = document.getElementById("descricao");
 
-    // ===============================
-    // VALIDAÇÃO
-    // ===============================
     if (nome.value.trim() === "") {
       textoErro.textContent = "Digite seu nome.";
       popupErroBox.style.display = "flex";
@@ -69,28 +110,22 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    // Se tudo OK → abrir popup sucesso
-    popupSucesso.style.display = "flex";
-  });
-
-
-  // ===============================
-  // BOTÃO OK DO POPUP → SUBMITE O FORMULÁRIO
-  // ===============================
-  fecharSucesso.addEventListener("click", () => {
+    // Envia formulário normalmente para o PHP
     form.submit();
   });
 
-  // Clique fora → também envia o formulário
+  // Popup sucesso → envia formulário (caso clicado fora da caixa)
+  fecharSucesso.addEventListener("click", () => {
+    window.location.href = "../Sessao_aluno/home_aluno.php";
+  });
+
   window.addEventListener("click", (e) => {
     if (e.target === popupSucesso) {
-      form.submit();
+      window.location.href = "../Sessao_aluno/home_aluno.php";
     }
   });
 
-  // ===============================
-  // FECHAR POPUP DE ERRO
-  // ===============================
+  // Fechar popup erro
   fecharErro.addEventListener("click", () => {
     popupErroBox.style.display = "none";
   });
@@ -100,8 +135,8 @@ document.addEventListener("DOMContentLoaded", () => {
       popupErroBox.style.display = "none";
     }
   });
-});
 
+});
 
 // ================================
 // PREVIEW DA IMAGEM
