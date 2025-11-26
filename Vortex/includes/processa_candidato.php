@@ -31,7 +31,23 @@ if (!$aluno) {
 
 $id_aluno = $aluno['id_aluno'];
 
+
+// ===============================
+// VERIFICA SE O ALUNO JÁ É CANDIDATO
+// ===============================
+$checkAluno = $conn->prepare("SELECT id_cand FROM candidato WHERE id_aluno = ?");
+$checkAluno->execute([$id_aluno]);
+
+if ($checkAluno->rowCount() > 0) {
+    // JÁ ESTÁ CADASTRADO COMO CANDIDATO → NÃO FAZ NADA
+    header("Location: ../Sessao_aluno/home_aluno.php");
+    exit;
+}
+
+
+// ===============================
 // UPLOAD DA FOTO
+// ===============================
 $foto_caminho = null;
 
 if (isset($_FILES['foto']) && $_FILES['foto']['error'] === 0) {
@@ -43,18 +59,25 @@ if (isset($_FILES['foto']) && $_FILES['foto']['error'] === 0) {
     $destino = $pasta . $nome_arquivo;
 
     if (move_uploaded_file($_FILES['foto']['tmp_name'], $destino)) {
-        $foto_caminho = "img/uploads/fotos/" . $nome_arquivo; // caminho relativo usado no site
+        $foto_caminho = "img/uploads/fotos/" . $nome_arquivo;
     }
 }
 
+
+// ===============================
 // INSERIR CANDIDATO NO BANCO
-$sql = "INSERT INTO candidato (id_aluno, descricao, email, foto) VALUES (?, ?, ?, ?)";
+// ===============================
+$sql = "INSERT INTO candidato (id_aluno, descricao, email, foto) 
+        VALUES (?, ?, ?, ?)";
 $stmt = $conn->prepare($sql);
 $stmt->execute([$id_aluno, $descricao, $email, $foto_caminho]);
 
 $id_cand = $conn->lastInsertId(); // pega o id do candidato recém-criado
 
+
+// ===============================
 // BUSCAR A VOTAÇÃO CORRESPONDENTE
+// ===============================
 $sql = "SELECT id_votacao 
         FROM votacao 
         WHERE curso = ? 
@@ -66,20 +89,27 @@ $stmt = $conn->prepare($sql);
 $stmt->execute([$curso, $semestre]);
 $votacao = $stmt->fetch(PDO::FETCH_ASSOC);
 
+
+// ===============================
+// INSERIR EM itens_votacao SE NÃO EXISTIR
+// ===============================
 if ($votacao) {
     $id_votacao = $votacao['id_votacao'];
 
     // VERIFICA SE JÁ EXISTE NA TABELA itens_votacao
-    $check = $conn->prepare("SELECT * FROM itens_votacao WHERE id_votacao = ? AND id_cand = ?");
+    $check = $conn->prepare("
+        SELECT * FROM itens_votacao 
+        WHERE id_votacao = ? AND id_cand = ?
+    ");
     $check->execute([$id_votacao, $id_cand]);
 
     if ($check->rowCount() === 0) {
-        // INSERE SOMENTE SE NÃO EXISTIR
         $sql2 = "INSERT INTO itens_votacao (id_votacao, id_cand) VALUES (?, ?)";
         $stmt2 = $conn->prepare($sql2);
         $stmt2->execute([$id_votacao, $id_cand]);
     }
 }
+
 
 // REDIRECIONA PARA A PÁGINA DO ALUNO
 header("Location: ../Sessao_aluno/home_aluno.php");
