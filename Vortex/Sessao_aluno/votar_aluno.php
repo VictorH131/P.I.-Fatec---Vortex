@@ -42,7 +42,7 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 
 <main id="mainvotar">
   <div id="centro">
-    <h2 id="h23">Votações Abertas</h2>
+    <h2 id="h23">Votação Aberta</h2>
     <div class="linha-completa">
       <div class="linha-grossa"></div>
       <div class="linha-fina"></div>

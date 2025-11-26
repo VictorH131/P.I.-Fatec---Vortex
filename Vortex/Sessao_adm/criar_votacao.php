@@ -3,7 +3,7 @@ require_once '../includes/dbconnect.php'; // conexão com o banco
 include '../includes/session.php'; // verifica se está logado
 include '../includes/header_adm.php'; // header
 
-$votacoes = [];
+$votacoes = []; 
 
 if (isset($_POST['curso'], $_POST['semestre'])) {
     $curso = $_POST['curso'];

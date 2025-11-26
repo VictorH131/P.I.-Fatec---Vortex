@@ -2,8 +2,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const votacoesDiv = document.getElementById("votacoes");
   let ordemAtual = 0;
+
+  // valores vindos do PHP
   let votoConfirmado = votoExistente || null;
   let jaVotou = Boolean(votoExistente);
+  let botaoClicado = null;
 
   function carregarVotacoes() {
     votacoesDiv.innerHTML = "";
@@ -16,6 +19,15 @@ document.addEventListener("DOMContentLoaded", function () {
       card.className = "card";
       card.setAttribute("data-index", aluno.id);
 
+      const votado = aluno.id === votoConfirmado;
+
+      // ---------- BLUR NOS NÃO VOTADOS ----------
+      if (jaVotou && !votado) {
+        card.style.filter = "blur(3px)";
+        card.style.opacity = "0.6";
+      }
+
+      // -------- EVENTO DE EXPANDIR --------
       card.addEventListener("click", (event) => {
         if (event.target.tagName.toLowerCase() !== "button") {
           const estaExpandido = card.classList.contains("destaque");
@@ -24,18 +36,26 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       });
 
-      const votado = aluno.id === votoConfirmado;
-
+      // -------- CONTEÚDO DO CARD --------
       card.innerHTML = `
         <img src="../${aluno.imagem}" alt="${aluno.nome}">
         <div class="nome-candidato"><strong>${aluno.nome}</strong></div>
         <p class="frase" style="display:none;">"${aluno.frase}"</p>
-        <button
-          ${votado || jaVotou ? 'class="botao-votado"' : ''}
-          ${votado || jaVotou ? "disabled" : ""}
-          onclick="event.stopPropagation(); abrirPopup(${aluno.id}, this)">
-          ${votado ? '<img src="../img/icones/votando.svg" class="icone-voto">' : "VOTAR"}
-        </button>
+
+        ${
+          jaVotou
+            ? (
+                votado
+                  // BOTÃO VERDE APENAS NO VOTADO
+                  ? `<button class="botao-votado" disabled style="background:#19A819;border:none;padding:12px 20px;border-radius:8px;">
+                       <img src="../img/icones/votando.svg" class="icone-voto">
+                     </button>`
+                  : ""
+              )
+            : `<button onclick="event.stopPropagation(); abrirPopup(${aluno.id}, this)" style="padding:12px 20px;border-radius:8px;border:none;color:#fff;">
+                VOTAR
+              </button>`
+        }
       `;
 
       votacoesDiv.appendChild(card);
@@ -79,7 +99,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   carregarVotacoes();
 
-  // ---------- POPUP DE CONFIRMAÇÃO ----------
+  // ---------- POPUP ----------
   const popup = document.createElement("div");
   popup.id = "popupvotarestcolha";
   popup.classList.add("popup-container");
@@ -98,7 +118,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   document.body.appendChild(popup);
 
-  // Adicionar evento para fechar popup (BOTÃO NÃO)
   popup.querySelector(".btn-sair").addEventListener("click", () => {
     popup.style.display = "none";
   });
@@ -107,12 +126,33 @@ document.addEventListener("DOMContentLoaded", function () {
 
   window.abrirPopup = function (idCandidato, botao) {
     if (jaVotou) return;
+
     candidatoEscolhido = idCandidato;
+    botaoClicado = botao;
 
     document.getElementById("btn-confirmar").onclick = () => {
-     window.location.href =
-      `../includes/votar.php?id_cand=${idCandidato}&id_votacao=${idVotacao}`;
 
+      jaVotou = true;
+      votoConfirmado = candidatoEscolhido;
+
+      // -------- BOTÃO VERDE --------
+      if (botaoClicado) {
+        botaoClicado.style.background = "#19A819";
+        botaoClicado.style.pointerEvents = "none";
+        botaoClicado.innerHTML = `<img src="../img/icones/votando.svg" class="icone-voto">`;
+        botaoClicado.disabled = true;
+      }
+
+      popup.style.display = "none";
+
+      // aplicar blur geral
+      carregarVotacoes();
+
+      // -------- SALVAR VOTO --------
+      setTimeout(() => {
+        window.location.href =
+          `../includes/votar.php?id_cand=${candidatoEscolhido}&id_votacao=${idVotacao}`;
+      }, 200);
     };
 
     popup.style.display = "flex";
