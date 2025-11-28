@@ -64,20 +64,19 @@ $candidatos = $stmtC->fetchAll(PDO::FETCH_ASSOC);
         <div class="acoes-gerenciamento">
 
             <?php
-                // Verifica se existem candidatos
-                if (count($candidatos) > 0) {
+            if (count($candidatos) > 0) {
                 ?>
-                    <a href="editar_votacao.php?id=<?= $votacao['id_votacao'] ?>" class="btn-gerenciar">
-                        Editar Participantes
-                    </a>
+                <a href="editar_votacao.php?id=<?= $votacao['id_votacao'] ?>" class="btn-gerenciar">
+                    Editar Participantes
+                </a>
                 <?php
-                } else {
+            } else {
                 ?>
-                    <span class="btn-gerenciar" style="opacity:0.5;cursor:not-allowed;">
-                        Editar Participantes
-                    </span>
+                <span class="btn-gerenciar" style="opacity:0.5;cursor:not-allowed;">
+                    Editar Participantes
+                </span>
                 <?php
-                }
+            }
             ?>
 
             <?php
@@ -86,7 +85,6 @@ $candidatos = $stmtC->fetchAll(PDO::FETCH_ASSOC);
             } elseif ($agora > $fim) {
                 echo '<span class="btn-gerenciar" style="opacity:0.6;cursor:default;">Finalizada</span>';
             } else {
-
                 if ($votacao['status'] === 'pendente') {
                     ?>
                     <form action="iniciar_votacao.php" method="POST" style="display:inline;">
@@ -94,22 +92,24 @@ $candidatos = $stmtC->fetchAll(PDO::FETCH_ASSOC);
                         <button type="submit" class="btn-gerenciar">Ativar</button>
                     </form>
                     <?php
-                }
-
-                elseif ($votacao['status'] === 'ativo') {
+                } elseif ($votacao['status'] === 'ativo') {
                     ?>
                     <form action="encerrar_votacao.php" method="POST" style="display:inline;">
                         <input type="hidden" name="id_votacao" value="<?= $votacao['id_votacao'] ?>">
                         <button type="submit" class="btn-gerenciar">Encerrar</button>
                     </form>
                     <?php
-                }
-
-                else {
+                } else {
                     echo '<span class="btn-gerenciar" style="opacity:0.6;cursor:default;">Finalizada</span>';
                 }
             }
             ?>
+
+            
+            <form action="../includes/excluir_votacao.php" method="POST" style="display:inline;margin-left:10px;">
+                <input type="hidden" name="id_votacao" value="<?= $votacao['id_votacao'] ?>">
+                <button type="submit" class="btn-exluir" >Excluir Votação</button>
+            </form>
 
             <a href="votar_adm.php?curso=<?= urlencode($votacao['curso']) ?>&semestre=<?= $votacao['semestre'] ?>" class="btn-voltar">
                 Voltar
@@ -137,7 +137,6 @@ $candidatos = $stmtC->fetchAll(PDO::FETCH_ASSOC);
                 <?php foreach ($candidatos as $c): ?>
 
                     <?php
-                    // Usa o caminho do banco, ou uma imagem padrão se estiver vazio
                     $foto = (!empty($c['foto']) && file_exists("../" . $c['foto']))
                         ? "../" . $c['foto']
                         : "../img/default_user.png";

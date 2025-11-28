@@ -1638,6 +1638,7 @@ body {
     margin-bottom: 30px;
 }
 
+
 #maingerenciarvoto .btn-gerenciar,
 #maingerenciarvoto .btn-voltar {
     padding: 10px 25px;
@@ -1660,6 +1661,19 @@ body {
     border-color: #222; 
 }
 
+#maingerenciarvoto .btn-exluir{
+    padding: 10px 25px;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: 0.2s;
+    background: #b30000;
+    border-color: #800000; 
+}
+#maingerenciarvoto .btn-exluir:hover{
+    background: #800000;
+}
 #maingerenciarvoto .btn-voltar:hover {
     background: #222;
 }
