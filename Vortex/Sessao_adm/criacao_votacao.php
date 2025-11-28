@@ -4,7 +4,10 @@
   echo '<title>Votações - Vortex</title>'; // titulo da pagina
   
 
+  
+  $voltar = $_SERVER['HTTP_REFERER'] ?? 'criar_votacao.php';
 ?>
+
 
 
 <?php if (isset($_SESSION['aviso'])): ?>
@@ -14,6 +17,11 @@
 <?php unset($_SESSION['aviso']); endif; ?>
 
 <main id="maincriavot">
+    
+    <a href="<?= htmlspecialchars($voltar) ?>" class="btn-voltar">
+        &#8592; Voltar
+    </a>
+
     <div class="container">
       <h2>CRIAÇÃO DE VOTAÇÕES</h2>
 
@@ -23,6 +31,8 @@
         <div class="linha-fina"></div>
       </div>
 
+
+      
       <div class="form-box">
         <div class="form-header">CRIAR UMA VOTAÇÃO</div>
 

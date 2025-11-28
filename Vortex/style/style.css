@@ -2261,6 +2261,30 @@ body {
   text-align: center; 
 }
 
+
+#maincriavot .btn-voltar {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #444;
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 8px;
+    border: none;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 60px;
+    margin-bottom: -200px;
+    margin-top: 50px;
+}
+
+#maincriavot .btn-voltar:hover {
+    background: #222;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
 /* ------------------------ Main Criar Votações Personalizar ------------------------  */
 
 #maincostumizarvot  {
