@@ -8,7 +8,6 @@ $votacoes = [];
 if (isset($_POST['curso'], $_POST['semestre'])) {
     $curso = $_POST['curso'];
     $semestre = $_POST['semestre'];
-    $status = 'ativo';
 
     // Consultando as votações existentes com segurança
     try {
@@ -16,13 +15,12 @@ if (isset($_POST['curso'], $_POST['semestre'])) {
             FROM votacao 
             WHERE curso = :curso 
               AND semestre = :semestre
-              AND status = :status
+              
             ORDER BY data_inicio DESC";
         $stmt = $conn->prepare($sql);
         $stmt->execute([
             ':curso' => $curso,
-            ':semestre' => $semestre,
-            ':status' => $status
+            ':semestre' => $semestre
         ]);
         $votacoes = $stmt->fetchAll(PDO::FETCH_ASSOC);
     } catch (PDOException $e) {

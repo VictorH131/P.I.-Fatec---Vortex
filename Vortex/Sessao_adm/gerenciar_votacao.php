@@ -21,9 +21,10 @@ if (!$votacao) {
     die("Votação não encontrada!");
 }
 
-$agora = time();
-$inicio = strtotime($votacao['data_inicio']);
-$fim = strtotime($votacao['data_fim']);
+$agora      = time();
+$inicio     = strtotime($votacao['data_inicio']);
+$fim        = strtotime($votacao['data_fim']);
+$inscricao  = strtotime($votacao['data_inscricao']);
 
 $sqlC = "SELECT c.id_cand AS id_candidato, a.nome, c.foto
          FROM itens_votacao iv
@@ -34,13 +35,50 @@ $sqlC = "SELECT c.id_cand AS id_candidato, a.nome, c.foto
 $stmtC = $conn->prepare($sqlC);
 $stmtC->execute([':id' => $id_votacao]);
 $candidatos = $stmtC->fetchAll(PDO::FETCH_ASSOC);
-
 ?>
 
 <title>Gerenciar Votação - <?= htmlspecialchars($votacao['descricao']) ?></title>
 
+<style>
+.alerta {
+    width: 100%;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 17px;
+    font-weight: 600;
+    color: #fff;
+    animation: aparecer 0.3s ease;
+    transition: opacity 0.5s ease;
+}
+.alerta.ativada { background:#28a745; }
+.alerta.encerrada { background:#c0392b; }
+.alerta.excluida { background:#8e44ad; }
+
+@keyframes aparecer {
+    from { opacity: 0; transform: translateY(-5px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+</style>
+
 <main id="maingerenciarvoto">
     <div class="container">
+
+        <?php if (isset($_GET['msg'])): ?>
+            <div class="alerta <?= $_GET['msg'] ?>">
+                <?php if ($_GET['msg'] === 'ativada'): ?>✔ A votação foi ativada!<?php endif; ?>
+                <?php if ($_GET['msg'] === 'encerrada'): ?>✔ A votação foi encerrada!<?php endif; ?>
+                <?php if ($_GET['msg'] === 'excluida'): ?>✔ Votação excluída com sucesso!<?php endif; ?>
+            </div>
+            <script>
+                setTimeout(()=>{
+                    const a=document.querySelector('.alerta');
+                    if(a) a.style.opacity='0';
+                    setTimeout(()=>{ if(a) a.remove(); },500);
+                },3000);
+            </script>
+        <?php endif; ?>
+
         <h2>Gerenciar Votação</h2>
 
         <div class="linha-completa">
@@ -58,103 +96,79 @@ $candidatos = $stmtC->fetchAll(PDO::FETCH_ASSOC);
             <p><strong>Data de Início:</strong> <?= date('d/m/Y', $inicio) ?></p>
             <p><strong>Data de Término:</strong> <?= date('d/m/Y', $fim) ?></p>
             <p><strong>Status:</strong> <?= htmlspecialchars($votacao['status']) ?></p>
-            <p><strong>Período de Inscrição:</strong> <?= date('d/m/Y', strtotime($votacao['data_inscricao'])) ?></p>
+            <p><strong>Período de Inscrição:</strong> <?= date('d/m/Y', $inscricao) ?></p>
         </div>
 
         <div class="acoes-gerenciamento">
 
-            <?php
-            if (count($candidatos) > 0) {
-                ?>
-                <a href="editar_votacao.php?id=<?= $votacao['id_votacao'] ?>" class="btn-gerenciar">
-                    Editar Participantes
-                </a>
-                <?php
-            } else {
-                ?>
-                <span class="btn-gerenciar" style="opacity:0.5;cursor:not-allowed;">
-                    Editar Participantes
-                </span>
-                <?php
-            }
-            ?>
+            <!-- EDITAR PARTICIPANTES -->
+            <?php if (count($candidatos) > 0): ?>
+                <a href="editar_votacao.php?id=<?= $votacao['id_votacao'] ?>" class="btn-gerenciar">Editar Participantes</a>
+            <?php else: ?>
+                <span class="btn-gerenciar" style="opacity:0.5;cursor:not-allowed;">Editar Participantes</span>
+            <?php endif; ?>
 
+            <!-- BOTÕES PRINCIPAIS -->
             <?php
-            if ($agora < $inicio) {
-                echo '<span class="btn-gerenciar" style="opacity:0.6;cursor:default;">Aguardando Período</span>';
-            } elseif ($agora > $fim) {
-                echo '<span class="btn-gerenciar" style="opacity:0.6;cursor:default;">Finalizada</span>';
-            } else {
-                if ($votacao['status'] === 'pendente') {
-                    ?>
-                    <form action="iniciar_votacao.php" method="POST" style="display:inline;">
-                        <input type="hidden" name="id_votacao" value="<?= $votacao['id_votacao'] ?>">
-                        <button type="submit" class="btn-gerenciar">Ativar</button>
-                    </form>
-                    <?php
-                } elseif ($votacao['status'] === 'ativo') {
-                    ?>
-                    <form action="encerrar_votacao.php" method="POST" style="display:inline;">
-                        <input type="hidden" name="id_votacao" value="<?= $votacao['id_votacao'] ?>">
-                        <button type="submit" class="btn-gerenciar">Encerrar</button>
-                    </form>
-                    <?php
+
+                if (count($candidatos) == 0) {
+                    echo '<span class="btn-gerenciar" style="opacity:0.5;">Cadastre candidatos para iniciar</span>';
                 } else {
-                    echo '<span class="btn-gerenciar" style="opacity:0.6;cursor:default;">Finalizada</span>';
+                    if ($votacao['status'] === 'ativo') {
+
+                        if ($agora < $inicio) {
+                            // Antes do início
+                           echo '<form action="../includes/iniciar_votacao.php" method="POST" style="display:inline;">
+                                    <input type="hidden" name="id_votacao" value="'.$votacao['id_votacao'].'">
+                                    <button type="submit" class="btn-gerenciar">Iniciar Votação</button>
+                                </form>';
+                        } else {
+                            // Após o início → mostrar botão encerrar
+                            echo '<form action="../includes/encerrar_votacao.php" method="POST" style="display:inline;">
+                                    <input type="hidden" name="id_votacao" value="'.$votacao['id_votacao'].'">
+                                    <button type="submit" class="btn-gerenciar">Encerrar Votação</button>
+                                </form>';
+                        }
+
+                    } else {
+                        
+                        echo '<a href="resultados_votacao.php?id='.$votacao['id_votacao'].'" class="btn-gerenciar">Ver Resultados</a>';
+                    }
                 }
-            }
             ?>
 
-            
+            <!-- EXCLUIR -->
             <form action="../includes/excluir_votacao.php" method="POST" style="display:inline;margin-left:10px;">
                 <input type="hidden" name="id_votacao" value="<?= $votacao['id_votacao'] ?>">
-                <button type="submit" class="btn-exluir" >Excluir Votação</button>
+                <button type="submit" class="btn-exluir">Excluir Votação</button>
             </form>
 
-            <a href="votar_adm.php?curso=<?= urlencode($votacao['curso']) ?>&semestre=<?= $votacao['semestre'] ?>" class="btn-voltar">
-                Voltar
-            </a>
+            <!-- VOLTAR -->
+            <a href="votar_adm.php?curso=<?= urlencode($votacao['curso']) ?>&semestre=<?= $votacao['semestre'] ?>" class="btn-voltar">Voltar</a>
 
         </div>
 
         <h3 style="margin-top:40px;">Candidatos</h3>
 
-       <?php if (count($candidatos) === 0): ?>
-
+        <?php if (count($candidatos) === 0): ?>
             <div style="margin-top:30px; text-align:center;">
-                <img src="https://img.icons8.com/ios-filled/100/000000/conference-call.png"
-                    alt="Ícone de grupo"
-                    style="opacity:0.7;">
-
-                <p style="margin-top:15px;font-size:18px;color:#555;">
-                    Nenhum candidato inscrito nesta votação.
-                </p>
+                <img src="https://img.icons8.com/ios-filled/100/000000/conference-call.png" style="opacity:0.7;">
+                <p style="margin-top:15px;font-size:18px;color:#555;">Nenhum candidato inscrito nesta votação.</p>
             </div>
-
         <?php else: ?>
-
             <div class="lista-candidatos">
-                <?php foreach ($candidatos as $c): ?>
-
-                    <?php
-                    $foto = (!empty($c['foto']) && file_exists("../" . $c['foto']))
-                        ? "../" . $c['foto']
-                        : "../img/default_user.png";
-                    ?>
-
+                <?php foreach ($candidatos as $c):
+                    $foto = (!empty($c['foto']) && file_exists("../".$c['foto'])) ? "../".$c['foto'] : "../img/default_user.png";
+                ?>
                     <div class="card-candidato">
                         <img src="<?= $foto ?>" class="foto-cand">
                         <p><?= htmlspecialchars($c['nome']) ?></p>
                     </div>
-
                 <?php endforeach; ?>
             </div>
-
         <?php endif; ?>
 
     </div>
 </main>
 
-<?php
-include '../includes/footer.php';
-?>
+<?php include '../includes/footer.php'; ?>
