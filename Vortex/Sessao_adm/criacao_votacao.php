@@ -1,7 +1,7 @@
 <?php
   include '../includes/session.php'; // Verifica se esta logado
   include '../includes/header_adm.php'; // header 
-  echo '<title>Votações - DSM 1º Semestre</title>'; // titulo da pagina
+  echo '<title>Votações - Vortex</title>'; // titulo da pagina
   
 
 ?>
