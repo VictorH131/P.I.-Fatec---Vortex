@@ -112,7 +112,10 @@ $registros = $stmt2->fetchAll(PDO::FETCH_ASSOC);
     </div>
 
     <div class="info-votacao">
-        <button class="btn-gerar-ata">Gerar Ata de Votação</button>
+        <button class="btn-gerar-ata"
+            onclick="window.open('../includes/gerar_ata.php?id=<?php echo $id_votacao; ?>', '_blank');">
+            Gerar Ata de Votação (PDF)
+        </button>
     </div>
 
     <div class="cards-container">
