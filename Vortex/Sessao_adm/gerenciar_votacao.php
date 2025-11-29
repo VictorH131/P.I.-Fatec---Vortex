@@ -102,7 +102,7 @@ $candidatos = $stmtC->fetchAll(PDO::FETCH_ASSOC);
         <div class="acoes-gerenciamento">
 
             <!-- EDITAR PARTICIPANTES -->
-            <?php if (count($candidatos) > 0): ?>
+            <?php if (count($candidatos) > 0 && $votacao['status'] !== 'encerrada'): ?>
                 <a href="editar_votacao.php?id=<?= $votacao['id_votacao'] ?>" class="btn-gerenciar">Editar Participantes</a>
             <?php else: ?>
                 <span class="btn-gerenciar" style="opacity:0.5;cursor:not-allowed;">Editar Participantes</span>
