@@ -34,6 +34,7 @@ $mapa_cursos = [
     'GE' => 'Gestão Empresarial',
 ];
 if (isset($mapa_cursos[$curso])) {
+    $curso_nome = $curso;
     $curso = $mapa_cursos[$curso];
 }
 
@@ -147,5 +148,5 @@ if ($pageCount >= 2 && count($alunos) > 24) {
 }
 
 ob_end_clean();
-$pdf->Output("Ata_Votacao_$id_votacao.pdf", "I");
+$pdf->Output("Ata_Votacao_{$curso_nome}_{$semestre}.pdf", "I");
 ?>
