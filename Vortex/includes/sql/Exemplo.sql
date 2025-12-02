@@ -96,8 +96,8 @@ INSERT INTO voto (id_aluno, id_votacao, id_cand) VALUES
 (8, 1, 1),
 (9, 1, 3), -- Feliphe recebe 1 voto
 (10, 1, 1),
-(11, 1, 1),
-(13, 1, 1),
+(11, 1, 4),
+(13, 1, 4),
 (14, 1, 4), -- Marcos recebe 1 voto
 (15, 1, 1);
 
