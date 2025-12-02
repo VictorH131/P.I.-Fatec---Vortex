@@ -62,6 +62,11 @@ if (isset($_FILES['foto']) && $_FILES['foto']['error'] === 0) {
     }
 }
 
+// SE NÃO ENVIAR FOTO → USA A PADRÃO
+if ($foto_caminho === null) {
+    $foto_caminho = "img/uploads/fotos/default.png"; 
+}
+
 
 // ===============================
 // INSERIR CANDIDATO NO BANCO
