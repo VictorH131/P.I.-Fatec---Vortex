@@ -21,8 +21,7 @@ VALUES
 ('Carolina Vieira', '2781392513042', 'carolina.vieira@fatec.sp.gov.br', '$2y$10$9OQvDx8Rk3XcfwzCjq4l0.Ng8RcQHj0ufF3GJp5YKv9pZxLJkS7cy'),
 ('André Mendonça', '2781392513043', 'andre.mendonca@fatec.sp.gov.br', '$2y$10$9OQvDx8Rk3XcfwzCjq4l0.Ng8RcQHj0ufF3GJp5YKv9pZxLJkS7cy'),
 ('Lívia Costa', '2781392513044', 'livia.costa@fatec.sp.gov.br', '$2y$10$9OQvDx8Rk3XcfwzCjq4l0.Ng8RcQHj0ufF3GJp5YKv9pZxLJkS7cy'),
-('Henrique Barros', '2781392513045', 'henrique.barros@fatec.sp.gov.br', '$2y$10$9OQvDx8Rk3XcfwzCjq4l0.Ng8RcQHj0ufF3GJp5YKv9pZxLJkS7cy'),
-('Beatriz Antunes', '2781392513046', 'beatriz.antunes@fatec.sp.gov.br', '$2y$10$9OQvDx8Rk3XcfwzCjq4l0.Ng8RcQHj0ufF3GJp5YKv9pZxLJkS7cy');
+('Henrique Barros', '2781392513045', 'henrique.barros@fatec.sp.gov.br', '$2y$10$9OQvDx8Rk3XcfwzCjq4l0.Ng8RcQHj0ufF3GJp5YKv9pZxLJkS7cy');
 
 
 -- Valores adm
@@ -84,6 +83,23 @@ VALUES
 (2, 11),  -- Fernanda
 (2, 12);  -- Eduardo
 
+
+-- Votos de exemplo (maioria para Victor, id_cand = 1)
+INSERT INTO voto (id_aluno, id_votacao, id_cand) VALUES
+-- Votação 1 (DSM 2º semestre)
+(1, 1, 1), -- Victor vota nele mesmo
+(3, 1, 1),
+(4, 1, 1),
+(5, 1, 1),
+(6, 1, 2), -- Matheus recebe 1 voto
+(7, 1, 1),
+(8, 1, 1),
+(9, 1, 3), -- Feliphe recebe 1 voto
+(10, 1, 1),
+(11, 1, 1),
+(13, 1, 1),
+(14, 1, 4), -- Marcos recebe 1 voto
+(15, 1, 1);
 
 
 

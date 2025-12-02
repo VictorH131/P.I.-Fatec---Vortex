@@ -111,11 +111,11 @@ $pdf->MultiCell(0, 7, $texto_ata);
 
 // Lista de alunos – primeira página
 $y = 161; // posição inicial vertical na página 1
-$espaçamento = 6.3; // distância entre linhas (reduzida de 7 para 5)
+$espaçamento = 6.27; // distância entre linhas (reduzida de 7 para 5)
 
 foreach ($alunos as $index => $a) {
 
-if ($index == 25) break; // limita primeira página
+if ($index == 18) break; // limita primeira página
     $pdf->SetXY(25, $y); // posição do nome
     $pdf->Write(0, $a['nome']);
 
@@ -127,24 +127,8 @@ if ($index == 25) break; // limita primeira página
 }
 
 // Segunda página, se houver
-if ($pageCount >= 2 && count($alunos) > 24) {
-    $tpl2 = $pdf->importPage(2);
-    $size2 = $pdf->getTemplateSize($tpl2);
-    $pdf->AddPage($size2['orientation'], [$size2['width'], $size2['height']]);
-    $pdf->useTemplate($tpl2, 0, 0, $size2['width'], $size2['height']);
-
-    $y = 10;
-    for ($i = 24; $i < count($alunos); $i++) {
-        $a = $alunos[$i];
-        $pdf->SetXY(20, $y); // nome
-        $pdf->Write(0, $a['nome']);
-
-        $pdf->SetXY(150, $y); // RA
-        $pdf->Write(0, $a['matricula']);
-
-        $y += $espaçamento;
-    }
-
+if ( count($alunos) > 18) {
+    $pdf->AddPage();
 }
 
 ob_end_clean();
