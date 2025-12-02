@@ -101,12 +101,22 @@ $candidatos = $stmtC->fetchAll(PDO::FETCH_ASSOC);
 
         <div class="acoes-gerenciamento">
 
-            <!-- EDITAR PARTICIPANTES -->
-            <?php if (count($candidatos) > 0 && $votacao['status'] !== 'encerrada'): ?>
+            <?php
+                $bloquearEdicao = false;
+
+                // BLOQUEIA SE:
+                // - votação ativa E JÁ INICIOU
+                if ($votacao['status'] === 'ativo' && $agora >= $inicio) {
+                    $bloquearEdicao = true;
+                }
+            ?>
+
+            <?php if (count($candidatos) > 0 && !$bloquearEdicao && $votacao['status'] !== 'encerrada'): ?>
                 <a href="editar_votacao.php?id=<?= $votacao['id_votacao'] ?>" class="btn-gerenciar">Editar Participantes</a>
             <?php else: ?>
                 <span class="btn-gerenciar" style="opacity:0.5;cursor:not-allowed;">Editar Participantes</span>
             <?php endif; ?>
+
 
             <!-- BOTÕES PRINCIPAIS -->
             <?php
@@ -137,11 +147,31 @@ $candidatos = $stmtC->fetchAll(PDO::FETCH_ASSOC);
                 }
             ?>
 
-            <!-- EXCLUIR -->
-            <form action="../includes/excluir_votacao.php" method="POST" style="display:inline;margin-left:10px;">
-                <input type="hidden" name="id_votacao" value="<?= $votacao['id_votacao'] ?>">
-                <button type="submit" class="btn-exluir">Excluir Votação</button>
-            </form>
+            <!-- BOTÃO EXCLUIR (permanece) -->
+            <button type="button" class="btn-exluir" onclick="abrirPopupExcluir()">Excluir Votação</button>
+
+            <!-- POPUP (cole logo após o botão) -->
+            <div id="popup-excluir" class="popup-fundo" aria-hidden="true" role="dialog" aria-modal="true">
+                <div class="popup-caixa" role="document">
+                    <button class="popup-close" aria-label="Fechar" onclick="fecharPopupExcluir()">✕</button>
+
+                    <h3>Excluir Votação</h3>
+                    <p>Tem certeza que deseja excluir esta votação?<br><strong>Esta ação é permanente e não poderá ser desfeita.</strong></p>
+
+                    <div class="popup-acoes">
+                        <button type="button" class="btn-cancelar" onclick="fecharPopupExcluir()">Cancelar</button>
+
+                        <form action="../includes/excluir_votacao.php" method="POST" style="display:inline;">
+                            <input type="hidden" name="id_votacao" value="<?= htmlspecialchars($votacao['id_votacao']) ?>">
+                            <button type="submit" class="btn-confirmar">Excluir</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            
+
+
 
             <!-- VOLTAR -->
             <a href="votar_adm.php?curso=<?= urlencode($votacao['curso']) ?>&semestre=<?= $votacao['semestre'] ?>" class="btn-voltar">Voltar</a>
@@ -170,5 +200,50 @@ $candidatos = $stmtC->fetchAll(PDO::FETCH_ASSOC);
 
     </div>
 </main>
+
+<script>
+(function(){
+    const popup = document.getElementById('popup-excluir');
+    const caixa = popup ? popup.querySelector('.popup-caixa') : null;
+
+    window.abrirPopupExcluir = function() {
+        if(!popup) return console.warn('popup-excluir não encontrado no DOM.');
+        popup.classList.add('mostrar');
+        popup.setAttribute('aria-hidden','false');
+        // foco no botão confirmar para teclado (opcional)
+        const confirmar = popup.querySelector('.btn-confirmar');
+        if(confirmar) confirmar.focus();
+        // trava scroll do body
+        document.documentElement.style.overflow = 'hidden';
+        document.body.style.overflow = 'hidden';
+    };
+
+    window.fecharPopupExcluir = function() {
+        if(!popup) return;
+        popup.classList.remove('mostrar');
+        popup.setAttribute('aria-hidden','true');
+        document.documentElement.style.overflow = '';
+        document.body.style.overflow = '';
+    };
+
+    // fechar ao clicar fora da caixa
+    if (popup && caixa) {
+        popup.addEventListener('mousedown', function(e){
+            // se o clique for fora da caixa, fecha
+            if (!caixa.contains(e.target)) {
+                fecharPopupExcluir();
+            }
+        });
+    }
+
+    // fechar com ESC
+    document.addEventListener('keydown', function(e){
+        if (e.key === 'Escape' || e.key === 'Esc') {
+            if (popup && popup.classList.contains('mostrar')) fecharPopupExcluir();
+        }
+    });
+})();
+</script>
+
 
 <?php include '../includes/footer.php'; ?>

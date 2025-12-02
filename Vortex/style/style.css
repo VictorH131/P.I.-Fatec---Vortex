@@ -1731,6 +1731,112 @@ body {
     margin: 25px 0 15px 0;
 }
 
+/* ============================
+   POPUP DE EXCLUSÃO (DENTRO DE #maingerenciarvoto)
+   ============================ */
+#maingerenciarvoto .popup-fundo {
+    display: none; /* oculto por padrão */
+    position: fixed;
+    inset: 0; /* top:0; right:0; bottom:0; left:0; */
+    background: rgba(0,0,0,0.55);
+    backdrop-filter: blur(3px);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#maingerenciarvoto .popup-fundo.mostrar {
+    display: flex;
+    animation: fadeIn 0.18s ease-out;
+}
+
+#maingerenciarvoto .popup-caixa {
+    background: #fff;
+    padding: 22px;
+    width: 420px;
+    max-width: calc(100% - 40px);
+    border-radius: 12px;
+    text-align: left;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.28);
+    position: relative;
+    transform: translateY(-8px);
+    opacity: 0;
+    animation: slideDown 0.22s ease forwards;
+}
+
+#maingerenciarvoto .popup-caixa h3 {
+    margin: 0 0 8px;
+    font-size: 20px;
+    color: #c0392b;
+}
+
+#maingerenciarvoto .popup-caixa p {
+    margin: 0 0 14px;
+    color: #444;
+    line-height: 1.4;
+    font-size: 15px;
+}
+
+#maingerenciarvoto .popup-acoes {
+    display: flex;
+    justify-content: center; 
+    gap: 12px;
+    margin-top: 15px;
+}
+
+
+/* botões */
+#maingerenciarvoto .btn-cancelar {
+    background: transparent;
+    border: 1px solid #bdbdbd;
+    padding: 8px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    color: #444;
+}
+
+#maingerenciarvoto .btn-cancelar:hover { filter: brightness(0.95); }
+
+#maingerenciarvoto .btn-confirmar {
+    background: #c0392b;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    color: white;
+    font-weight: 700;
+    box-shadow: 0 6px 12px rgba(192,57,43,0.15);
+}
+
+#maingerenciarvoto .btn-confirmar:hover { filter: brightness(0.92); }
+
+/* botão fechar (x) */
+#maingerenciarvoto .popup-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 18px;
+    color: #888;
+}
+
+/* animações */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+@keyframes slideDown {
+    from { transform: translateY(-8px); opacity: 0; }
+    to   { transform: translateY(0); opacity: 1; }
+}
 
 
 
