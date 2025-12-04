@@ -44,7 +44,7 @@
               <div class="campo">
                 <label for="curso">CURSO:</label>
                 <select id="curso" name="curso" required>
-                  <option value="" disabled selected>Selecione</option>
+                  <option value="" disabled selected>Selecione o  Curso</option>
                   <option value="DSM">DSM - Desenvolvimento de Software Multiplataforma</option>
                   <option value="GE">GE - Gestão Empresarial</option>
                   <option value="GI">GI - Gestão Industrial</option>
@@ -54,7 +54,7 @@
               <div class="campo">
                 <label for="semestre"> SEMESTRE:</label>
                 <select id="semestre" name="semestre" required>
-                  <option value="" disabled selected>Selecione</option>
+                  <option value="" disabled selected>Selecione o Semestre</option>
                   <option value="1">1º Semestre</option>
                   <option value="2">2º Semestre</option>
                   <option value="3">3º Semestre</option>
@@ -65,23 +65,30 @@
               </div>
             </div>
 
-            <div class="tres-colunas">
-              <div class="campos">
-                <label for="inscricoes"> INSCRIÇÕES:</label>
+            <div class="linha-inscricoes">
+              <div class="campo-inscricao">
+                <label for="inscricoes">CANDIDATURA:</label>
                 <select id="inscricoes" name="inscricoes" required>
-                  <option value="" disabled selected>Selecione</option>
-                  <option value="1">1 Dia</option>
-                  <option value="2">2 Dia</option>
-                  <option value="3">3 Dia</option>
-                  <option value="4">4 Dia</option>
-                  <option value="5">5 Dia</option>
-                  <option value="6">6 Dia</option>
-                  <option value="7">1 Semana</option>
-                  <option value="14">2 Semanas</option>
-                  <option value="21">3 Semanas</option>
+                  <option value="" disabled selected>Selecione o prazo</option>
+                  <option value="1">1 Dia(s)</option>
+                  <option value="2">2 Dia(s)</option>
+                  <option value="3">3 Dia(s)</option>
+                  <option value="4">4 Dia(s)</option>
+                  <option value="5">5 Dia(s)</option>
+                  <option value="6">6 Dia(s)</option>
+                  <option value="7">1 Semana(s)</option>
+                  <option value="14">2 Semana(s)</option>
+                  <option value="21">3 Semana(s)</option>
                 </select>
               </div>
 
+              <span class="texto-observacao-inscricoes">
+                 Define o tempo que os alunos poderão se candidatar, antes do início da votação.
+              </span>
+            </div>
+
+            <label for="inscricoes">PERÍODO DE VOTAÇÃO:</label> <br>
+            <div class="duas-colunas">
               <div class="campo">
                 <label for="inicio"> INÍCIO:</label>
                 <input type="date" id="inicio" name="inicio"  required>
@@ -94,7 +101,7 @@
             </div>
 
             <label for="descricao">DESCRIÇÃO:</label>
-            <textarea id="descricao" name="descricao" placeholder="Descreva brevemente a votação..."></textarea>
+            <textarea id="descricao" name="descricao" placeholder="Descreva brevemente sobre a votação..."></textarea>
 
             <button type="submit" class="btn-confirmar">CONFIRMAR</button>
           </form>

@@ -2295,13 +2295,12 @@ body {
   font-family: "Segoe UI", sans-serif;
 }
 
-
-
 #maincriavot .duas-colunas {
   display: flex;
-  justify-content: space-between;
-  gap: 35px;
+  justify-content: center;
+  gap: 40px;
 }
+
 
 #maincriavot .tres-colunas {
   display: flex;
@@ -2349,8 +2348,6 @@ body {
 
 } 
 
-
-
 #maincriavot #inicio {
   border: 2px solid #1b49ac;
   background-color: #deeefd;
@@ -2366,7 +2363,6 @@ body {
 #maincriavot input[type="date"] {
   text-align: center; 
 }
-
 
 #maincriavot .btn-voltar {
     display: inline-block;
@@ -2391,6 +2387,27 @@ body {
     transform: translateY(-2px);
     box-shadow: 0 6px 12px rgba(0,0,0,0.2);
 }
+/* texto ao lado do "Selecione um prazo" */
+
+#maincriavot .linha-inscricoes {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+#maincriavot .campo-inscricao {
+  width: 180px;
+}
+
+#maincriavot .texto-observacao-inscricoes {
+  font-size: 12.5px;
+  color: #444;
+  max-width: 300px;
+  line-height: 1.3;
+  margin-bottom: 10px;
+}
+
+
 /* ------------------------ Main Criar Votações Personalizar ------------------------  */
 
 #maincostumizarvot  {
