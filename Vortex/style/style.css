@@ -1844,7 +1844,6 @@ body {
 /* ------------------------ Main Votar (final) ------------------------  */
 
 
-
 #maindex {
   max-width: 1000px;
   margin: 30px auto;
@@ -1881,102 +1880,111 @@ body {
 #maindex .candidate {
   position: relative;
   display: flex;
-  gap: 30px;
-  margin: 30px 0;
+  gap: 25px;
+  margin: 25px 0;
   align-items: flex-start;
-  background-color: #d4d4d465;
-  padding: 15px;
+  background-color: #f5f5f5;
+  padding: 20px;
   border: 1px solid #00388b;
-  border-radius: 20px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
-#maindex .candidate-info {
-  flex: 1;
-  max-width: 280px;
+#maindex .candidate:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12);
 }
 
 #maindex .candidate-info img {
-  width: 270px;
-  height: 300px;
+  width: 260px;
+  height: 290px;
   object-fit: cover;
-  border: 4px solid #002c5f;
+  border: 3px solid #002c5f;
   border-radius: 10px;
-  display: block;
-  margin: 0 auto;
-}
-
-#maindex .candidate-info h3 {
-  background-color: #002c5f;
-  color: #fff;
-  padding: 10px;
-  text-align: center;
-  font-size: 14px;
-  text-transform: uppercase;
-  margin-top: 5px;
-  border-radius: 5px;
-}
-
-#maindex .candidate-info p {
-  font-size: 13px;
-  margin-top: 10px;
 }
 
 #maindex .result-info {
   flex: 1;
   text-align: center;
-  padding: 10px 0;
-  margin-top: 30px;
+  padding: 5px 0;
+  margin-top: 10px;
 }
-
-#maindex .result-info p {
-  font-size: 14px;
-  margin-bottom: 8px;
-}
-
-#maindex .result-info strong {
-  color: #002c5f;
-  font-size: 20px;
-  display: block;
-  margin: 10px 0;
-}
-
 
 .result-circle {
-  width: 100px;
-  height: 100px;
-  font-size: 50px;
-  font-weight: bold;
-  border: 4px solid #00254e;
-  border-radius: 50%;
-  color: #002c5f;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 10px auto;
-  margin-top: 80px;
-  background-image: url("../img/fundo_circlo.png");
-  background-size: cover;
-  background-position: center;
+  background-image: none !important;    
+  background-color: #ffffff !important; 
+  background-repeat: no-repeat !important;
+  background-size: auto !important;
+  background-position: center center !important;
+
+  width: 90px !important;
+  height: 90px !important;
+  font-size: 36px !important;
+  line-height: 90px !important; 
+  font-weight: 700 !important;
+  border: 3px solid #00254e !important;
+  border-radius: 50% !important;
+  color: #002c5f !important;
+  display: block !important;
+  margin: 10px auto 5px auto !important;
+  text-align: center !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06) !important;
+  overflow: hidden !important; 
+}
+
+#maindex .candidate {
+    background-color: #0F336C !important; 
+    border: 1px solid #001B3A;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+#maindex .candidate-info h3,
+#maindex .candidate-info p,
+#maindex .result-info p,
+#maindex .result-info strong {
+    color: #ffffff !important;
+}
+
+#maindex .candidate-info img {
+  width: 240px;
+  height: 280px;
 }
 
 
 #maindex .icon-footer {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  display: flex;
-  gap: 5px;
-
+    position: absolute;
+    bottom: 12px;
+    right: 18px;
+    display: flex;
+    gap: 6px;
+    align-items: center;
 }
 
 #maindex .icon-footer img {
-  max-width: 90px;
-  height: 35px;
-  padding-right: 15px;
+    width: 65px !important;    
+    height: auto !important;   
+    object-fit: contain !important;
+    display: block;
 }
 
+@media (max-width: 880px) {
+    #maindex .icon-footer {
+        position: static;
+        margin-top: 10px;
+        justify-content: center;
+    }
 
+    #maindex .icon-footer img {
+        width: 55px !important; 
+    }
+}
+
+@media (max-width: 880px) {
+  #maindex .candidate { flex-direction: column; align-items: center; }
+  #maindex .candidate-info img { width: 220px; height: 260px; }
+  #maindex .icon-footer { position: static; margin-top: 8px; }
+}
 
 
 /* ------------------------ Main ver cursos ------------------------  */

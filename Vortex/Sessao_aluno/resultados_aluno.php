@@ -72,9 +72,9 @@ $candidatos = array_slice($candidatos, 0, 2);
             <p>Esse é o seu total de votos Parabéns!! </p>
             <div class="result-circle"><?= $c['total_votos'] ?></div>
             <div class="icon-footer">
-                <img src="../img/fatec_mini.png" alt="Icone 1" style="margin-top: -6px">
-                <img src="../img/logo_vortex_Nome.PNG" alt="Icone 3">
-                <img src="../img/cps_mini.png" alt="Icone 2">
+                <img src="../img/logo_fatec_branca.png" alt="Icone 1" style="margin-top: -6px">
+                <img src="../img/LOGO_VORTEX.png" alt="Icone 3">
+                <img src="../img/logo_cps_branca.png" alt="Icone 2">
             </div>
         </div>
     </div>
