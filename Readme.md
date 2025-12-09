@@ -6,9 +6,9 @@
 ## Tema Sistema de Votação Online.                                                                                                                            
  > Parceria entre os alunos e a Fatec, visando modernizar processos internos de votação acadêmica.   
                                                                                                         
-##
+---
 
-### Acesse o Projeto Vortex  
+## Acesse o Projeto Vortex  
 Explore o site oficial do **Vortex**, desenvolvido com foco em organização, transparência e tecnologia:
 
 🔗 **[Clique aqui para visitar o Site do Vortex](https://vortexweb.page.gd/)**  
