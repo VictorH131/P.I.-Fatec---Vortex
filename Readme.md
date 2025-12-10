@@ -5,22 +5,29 @@
                                                                                                         
 ## Tema Sistema de Votação Online.                                                                                                                            
  > Parceria entre os alunos e a Fatec, visando modernizar processos internos de votação acadêmica.   
-                                                                                                        
+                                                                                                   
+<br>
+     
 ---
 
 ## Acesse o Projeto Vortex  
+
+<br>
+
 Explore o site oficial do **Vortex**, desenvolvido com foco em organização, transparência e tecnologia:
 
 🔗 **[Clique aqui para visitar o Site do Vortex](https://vortexweb.page.gd/)**  
 
 Sinta-se à vontade para navegar, testar as funcionalidades e acompanhar a evolução do projeto!
 
+<br>
 
 
 ---
 
-
 ## Integrantes da Equipe
+
+<br>
 
 | Nome Completo Dos Participantes
 |-------------------------------------------------------|
@@ -28,19 +35,26 @@ Sinta-se à vontade para navegar, testar as funcionalidades e acompanhar a evolu
 | **Matheus Reinhart Camargo Martins Catarino**         | 
 | **Feliphe Eduardo Silvério Gonçalves de Oliveira**    | 
 | **Marcos Vinícius Rocha**                             | 
-|-------------------------------------------------------|
+
+<br>
+
 ---
 
-
 ##  Motivação do Projeto
+
+<br>
 
 O projeto **Sistema de Votação Online** foi iniciado em 28/10/2025 como solução para a necessidade de um sistema digital seguro, padronizado e acessível para realização de eleições acadêmicas.
 
 Seu objetivo é permitir que alunos, docentes e gestão institucional possam participar e administrar votações de forma clara, organizada e rastreável. Toda a aplicação foi desenvolvida considerando boas práticas de **usabilidade, segurança, autenticação e integridade de dados**.
 
+<br>
+
 ---
 
 ##  Funcionalidades
+
+<br>
 
 - Login seguro com controle de sessão (Aluno / Administrador).
 - Criação de votações com datas e restrições.
@@ -50,9 +64,13 @@ Seu objetivo é permitir que alunos, docentes e gestão institucional possam par
 - Página Sobre, Ajuda e Políticas do Sistema.
 - Geração de Ata e Documentação Completa.
 
+<br>
+
 ---
 
 ##  Tecnologias Utilizadas
+
+<br>
 
 | Tecnologia | Descrição |
 |----------|-----------|
@@ -62,9 +80,13 @@ Seu objetivo é permitir que alunos, docentes e gestão institucional possam par
 | **XAMPP / Apache** | Servidor de desenvolvimento |
 | **Figma** | Prototipação visual inicial |
 
+<br>
+
 ---
 
 ##  Estrutura do Banco de Dados (Vortexdb)
+
+<br>
 
 | Tabela | Função |
 |-------|--------|
@@ -80,9 +102,13 @@ Seu objetivo é permitir que alunos, docentes e gestão institucional possam par
 - Senhas criptografadas.
 - Restrição `UNIQUE` impedindo voto duplicado.
 
+<br>
+
 ---
 
 ##  Capturas de Tela
+
+<br>
 
 Página Index
 <img width="1814" height="865" alt="image" src="https://github.com/user-attachments/assets/a55e5dec-30b9-4792-97ea-34b1e0bd9576" />
