@@ -84,4 +84,50 @@ Seu objetivo é permitir que alunos, docentes e gestão institucional possam par
 
 ##  Capturas de Tela
 
+Página Index
+<img width="1814" height="865" alt="image" src="https://github.com/user-attachments/assets/a55e5dec-30b9-4792-97ea-34b1e0bd9576" />
+
+<br>
+
+# Sessão Aluno:
+
+<br>
+
+Página Login (Aluno)
+<img width="1860" height="854" alt="image" src="https://github.com/user-attachments/assets/a9f7a1a7-e043-4c2e-acda-bb72a4f6d86d" />
+
+<br>
+
+Página Home (Aluno)
+<img width="1823" height="873" alt="image" src="https://github.com/user-attachments/assets/0ea5f935-681f-4816-bfa2-0c2ce4e86eaf" />
+
+<br>
+
+Página Votação Aberta (Aluno)
+<img width="1785" height="805" alt="image" src="https://github.com/user-attachments/assets/3aba87d9-7726-4b06-b708-77145feb025e" />
+
+<br>
+
+Página Candidatura
+<img width="1646" height="842" alt="image" src="https://github.com/user-attachments/assets/f060e170-8a25-4e3b-aef4-74a762696ae7" />
+
+<br>
+
+
+---
+
+# Sessão ADM:
+
+Página Login (ADM)
+<img width="1860" height="862" alt="image" src="https://github.com/user-attachments/assets/265d9947-2a44-41ed-ab2f-62c5fc03cefd" />
+
+
+<br>
+
+Página Home (ADM)
+<img width="1807" height="872" alt="image" src="https://github.com/user-attachments/assets/2a99d447-e801-405e-86cf-c802200a117e" />
+
+<br>
+
+Página
 
