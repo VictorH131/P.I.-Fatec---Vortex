@@ -108,7 +108,7 @@ Página Votação Aberta (Aluno)
 
 <br>
 
-Página Candidatura
+Página Candidatura (Aluno)
 <img width="1646" height="842" alt="image" src="https://github.com/user-attachments/assets/f060e170-8a25-4e3b-aef4-74a762696ae7" />
 
 <br>
@@ -154,7 +154,7 @@ Página Pesquisar (ADM)
 
 <br>
 
-Página Criar Votações(ADM)
+Página Criar Votações (ADM)
 <img width="1803" height="870" alt="image" src="https://github.com/user-attachments/assets/8a881f73-4673-4412-b497-dfff7e9c4083" />
 
 <br>
@@ -186,9 +186,35 @@ Pagína Ver Resultados da votação (ADM)
 
 <br>
 
-Pagína Ata da Votação(ADM)
+Pagína Ata da Votação (ADM)
 <img width="855" height="540" alt="image" src="https://github.com/user-attachments/assets/cf1ab44a-194e-48f0-971b-12de5897afa7" />
 <img width="857" height="634" alt="image" src="https://github.com/user-attachments/assets/0b0adc06-c8e8-4fcb-bd71-05365d543f33" />
 
+<br>
+
+---
+
+# Sessão Geral (Pagínas Extras no sistema):
+
+<br>
+
+Pagína Sobre (Geral)
+<img width="1758" height="657" alt="image" src="https://github.com/user-attachments/assets/6667042e-165e-419a-b2dd-1edc11f7c947" />
+
+<br>
+
+Pagína Ajunda (Aluno)
+<img width="1738" height="876" alt="image" src="https://github.com/user-attachments/assets/23f8eaa4-1bea-41d8-9946-6eb6f876dbf0" />
+
+<br>
+
+Pagína Ajunda (ADM)
+<img width="1788" height="863" alt="image" src="https://github.com/user-attachments/assets/f07959bf-1aa6-45a9-b5fc-e1032d6e2ba2" />
+
+<br>
+
+Pagína Politicas do Site (ADM)
+<img width="1753" height="887" alt="image" src="https://github.com/user-attachments/assets/6b09a92f-df28-48b6-843f-e329666ed570" />
+- Por ser uma pagina muito extensa não ser postada inteira
 
 
